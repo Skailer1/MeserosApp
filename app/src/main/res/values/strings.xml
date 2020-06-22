@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MesApp</string>
+    <string name="btnIngresarId">Ingresar</string>
+    <string name="login_activity_title">Login</string>
+    <string name="btnLoginId"></string>
+    <string name="btnFinalizarPedido"></string>
+    <string name="btnAgregarProducto"></string>
+    <string name="btnAgregarPedido"></string>
+    <string name="btnEliminarProducto"></string>
+</resources>
