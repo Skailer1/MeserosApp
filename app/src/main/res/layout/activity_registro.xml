@@ -21,20 +21,6 @@
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/alike"
-        android:text="Por favor rellene todos los campos correctamente para realizar el registro, una vez terminado ingerese al aplicativo con su usario y contraseña "
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp" />
-
-
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -63,10 +49,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Telefono"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Telefono"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText24"
@@ -75,10 +61,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Correo"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Correo"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText23"
@@ -87,10 +73,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Direccion"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Direccion"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText22"
@@ -99,10 +85,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="RH"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="RH"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText21"
@@ -111,10 +97,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Sexo"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Sexo"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText20"
@@ -123,10 +109,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Tipo Empleado"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Tipo Empleado"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText19"
@@ -135,10 +121,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Rol"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Rol"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText18"
@@ -147,10 +133,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Usuario"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Usuario"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText17"
@@ -159,10 +145,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Contraseña"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Contraseña"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText16"
@@ -171,10 +157,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Tipo Documento"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Tipo Documento"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <EditText
                 android:id="@+id/editText15"
@@ -183,10 +169,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Numero de Documento"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:hint="Numero de Documento"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimary" />
 
             <Button
                 android:id="@+id/button7"
@@ -196,10 +182,24 @@
                 android:layout_marginBottom="30dp"
                 android:background="@color/colorButton"
                 android:fontFamily="@font/alike"
+                android:onClick="btnSesionClick"
                 android:text="REGISTRAR"
                 android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/alike"
+        android:text="Por favor rellene todos los campos correctamente para realizar el registro, una vez terminado ingerese al aplicativo con su usario y contraseña "
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+
 </LinearLayout>

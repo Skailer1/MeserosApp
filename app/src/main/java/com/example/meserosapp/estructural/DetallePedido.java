@@ -1,5 +1,6 @@
 package com.example.meserosapp.estructural;
 
+import java.util.Date;
 import java.util.List;
 
 public class DetallePedido
@@ -7,15 +8,19 @@ public class DetallePedido
     private Long id;
     private int cantidad;
     private double valorUnitario;
-    private Producto productoId;
-    private List<Pedido> pedidoList;
+    private double total;
+    private boolean isActivo;
+    private Date fechaCreacion;
+    private Date fechaActualizacion;
 
-    public DetallePedido(Long id, int cantidad, double valorUnitario, Producto productoId, List<Pedido> pedidoList) {
+    public DetallePedido(Long id, int cantidad, double valorUnitario, double total, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
         this.id = id;
         this.cantidad = cantidad;
         this.valorUnitario = valorUnitario;
-        this.productoId = productoId;
-        this.pedidoList = pedidoList;
+        this.total = total;
+        this.isActivo = isActivo;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
     }
 
     public Long getId() {
@@ -42,19 +47,36 @@ public class DetallePedido
         this.valorUnitario = valorUnitario;
     }
 
-    public Producto getProductoId() {
-        return productoId;
+    public double getTotal() {
+        return total;
     }
 
-    public void setProductoId(Producto productoId) {
-        this.productoId = productoId;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
-    public List<Pedido> getPedidoList() {
-        return pedidoList;
+
+    public boolean isActivo() {
+        return isActivo;
     }
 
-    public void setPedidoList(List<Pedido> pedidoList) {
-        this.pedidoList = pedidoList;
+    public void setActivo(boolean activo) {
+        isActivo = activo;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 }

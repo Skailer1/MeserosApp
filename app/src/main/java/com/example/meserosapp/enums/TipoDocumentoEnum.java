@@ -1,10 +1,10 @@
 package com.example.meserosapp.enums;
 
-public enum Sexo
+public enum TipoDocumentoEnum
 {
-    MACULINO,
-    FEMENINO,
-    OTRO,;
+    PA,
+    PE,
+    CC,;
 
     private String name;
 

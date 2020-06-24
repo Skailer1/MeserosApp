@@ -5,20 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class RegistroActivity extends AppCompatActivity {
+public class TipoEmpleadoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_tipo_empleado);
+        getSupportActionBar().setTitle("Tipo Empleado");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Registro");
-
     }
 
-    public void btnSesionClick(View view){
+    public void btnRegistroClick(View view){
 
-        Intent intent  = new Intent (RegistroActivity.this, LoginActivity.class  );
+        Intent intent  = new Intent (TipoEmpleadoActivity.this, RegistroActivity.class  );
 
         startActivity(intent);
 

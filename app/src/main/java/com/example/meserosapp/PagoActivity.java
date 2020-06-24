@@ -30,10 +30,10 @@ public class PagoActivity extends AppCompatActivity  {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(PagoActivity.this,DialogPagoActivity.class);
-             //   intent.putExtra("detalle",pagos[position]);
-                startActivity(intent);
+                openDialog();
+//              Intent intent = new Intent(PagoActivity.this,DialogPagoActivity.class);
+//              intent.putExtra("detalle",pagos[position]);
+//              startActivity(intent);
 
 
 
@@ -42,6 +42,12 @@ public class PagoActivity extends AppCompatActivity  {
         });
 
     }
+
+    public void openDialog() {
+        DialogPagoActivity dialogPago = new DialogPagoActivity();
+        dialogPago.show(getSupportFragmentManager(), "Pago");
+    }
+
 
     public void btnEntregarPedidoClick(View view){
 

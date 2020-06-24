@@ -1,30 +1,47 @@
 package com.example.meserosapp.estructural;
 
 import java.util.Date;
-import java.util.List;
 
 public class Producto
 {
     private Long id;
     private int cantidadEnStock;
+    private String fotoProducto;
+    private double iva;
     private double costo;
     private Date fechaCreación;
     private Date fechaActualizacion;
     private String nombreProducto;
-    private Boolean esActivo;
+    private Boolean isActivo;
     private TipoProducto tipoProducto;
-    private List<DetallePedido> detallePedidoList;
 
-    public Producto(Long id, int cantidadEnStock, double costo, Date fechaCreación, Date fechaActualizacion, String nombreProducto, Boolean esActivo, TipoProducto tipoProducto, List<DetallePedido> detallePedidoList) {
+    public Producto(Long id, int cantidadEnStock, String fotoProducto, double iva, double costo, Date fechaCreación, Date fechaActualizacion, String nombreProducto, Boolean isActivo, TipoProducto tipoProducto) {
         this.id = id;
         this.cantidadEnStock = cantidadEnStock;
+        this.fotoProducto = fotoProducto;
+        this.iva = iva;
         this.costo = costo;
         this.fechaCreación = fechaCreación;
         this.fechaActualizacion = fechaActualizacion;
         this.nombreProducto = nombreProducto;
-        this.esActivo = esActivo;
+        this.isActivo = isActivo;
         this.tipoProducto = tipoProducto;
-        this.detallePedidoList = detallePedidoList;
+    }
+
+    public String getFotoProducto() {
+        return fotoProducto;
+    }
+
+    public void setFotoProducto(String fotoProducto) {
+        this.fotoProducto = fotoProducto;
+    }
+
+    public double getIva() {
+        return iva;
+    }
+
+    public void setIva(double iva) {
+        this.iva = iva;
     }
 
     public Long getId() {
@@ -75,12 +92,12 @@ public class Producto
         this.nombreProducto = nombreProducto;
     }
 
-    public Boolean getEsActivo() {
-        return esActivo;
+    public Boolean getIsActivo() {
+        return isActivo;
     }
 
-    public void setEsActivo(Boolean esActivo) {
-        this.esActivo = esActivo;
+    public void setIsActivo(Boolean isActivo) {
+        this.isActivo = isActivo;
     }
 
     public TipoProducto getTipoProducto() {
@@ -91,11 +108,4 @@ public class Producto
         this.tipoProducto = tipoProducto;
     }
 
-    public List<DetallePedido> getDetallePedidoList() {
-        return detallePedidoList;
-    }
-
-    public void setDetallePedidoList(List<DetallePedido> detallePedidoList) {
-        this.detallePedidoList = detallePedidoList;
-    }
 }

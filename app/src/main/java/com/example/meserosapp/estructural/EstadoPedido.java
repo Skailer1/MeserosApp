@@ -2,19 +2,26 @@ package com.example.meserosapp.estructural;
 
 import com.example.meserosapp.enums.DescripcionEstado;
 
+import java.util.Date;
 import java.util.List;
 
 public class EstadoPedido
 {
     private Long id;
     private DescripcionEstado descripcionEstado;
-    private List<Pedido> pedidoList;
+    private boolean isActivo;
+    private Date fechaCreacion;
+    private Date fechaActualizacion;
 
-    public EstadoPedido(Long id, DescripcionEstado descripcionEstado, List<Pedido> pedidoList) {
+    public EstadoPedido(Long id, DescripcionEstado descripcionEstado, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
         this.id = id;
         this.descripcionEstado = descripcionEstado;
-        this.pedidoList = pedidoList;
+        this.isActivo = isActivo;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
     }
+
+
 
     public Long getId() {
         return id;
@@ -32,11 +39,27 @@ public class EstadoPedido
         this.descripcionEstado = descripcionEstado;
     }
 
-    public List<Pedido> getPedidoList() {
-        return pedidoList;
+    public boolean isActivo() {
+        return isActivo;
     }
 
-    public void setPedidoList(List<Pedido> pedidoList) {
-        this.pedidoList = pedidoList;
+    public void setActivo(boolean activo) {
+        isActivo = activo;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 }

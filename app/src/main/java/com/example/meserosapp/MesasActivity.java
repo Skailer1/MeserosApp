@@ -40,7 +40,10 @@ public class MesasActivity extends AppCompatActivity implements ListarMesaContra
         List<String> resultado = new ArrayList<>();
         for (Mesa mesa : mesas) {
             String toString = "Id " + mesa.getId() + "\n"
-                    + "Nombre: " + mesa.getNombre();
+                    + "Nombre: " + mesa.getNombre() + "\n"
+                    + "Fecha Actualizacion: " + mesa.getFechaActualizacion() + "\n"
+                    + "Fecha Creacion: " + mesa.getFechaCreacion() + "\n"
+                    + "Es Activo: " + mesa.isActivo() ;
             resultado.add(toString);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, resultado);
@@ -57,6 +60,8 @@ public class MesasActivity extends AppCompatActivity implements ListarMesaContra
 
     }
 }
+
+
 
 
 

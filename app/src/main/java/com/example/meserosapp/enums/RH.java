@@ -9,6 +9,11 @@ public enum RH
     O_POSITIVO,
     O_NEGATIVO,
     AB_POSTIVO,
-    AB_NEGATIVO
+    AB_NEGATIVO,;
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 }

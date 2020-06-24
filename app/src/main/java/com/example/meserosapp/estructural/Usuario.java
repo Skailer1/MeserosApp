@@ -1,5 +1,6 @@
 package com.example.meserosapp.estructural;
 
+import java.util.Date;
 import java.util.List;
 
 public class Usuario
@@ -8,18 +9,47 @@ public class Usuario
     private String nombreUsuario;
     private String correo;
     private String contraseña;
-    private boolean esActivo;
-    private List<Rol> rolList;
-    private List<Empleado> empleadoList;
+    private boolean isActivo;
+    private Date fechaCreacion;
+    private Date fechaActualizacion;
 
-    public Usuario(Long id, String nombreUsuario, String correo, String contraseña, boolean esActivo, List<Rol> rolList, List<Empleado> empleadoList) {
+
+    public Usuario(Long id, String nombreUsuario, String correo, String contraseña, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.correo = correo;
         this.contraseña = contraseña;
-        this.esActivo = esActivo;
-        this.rolList = rolList;
-        this.empleadoList = empleadoList;
+        this.isActivo = isActivo;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public Usuario() {
+
+    }
+
+    public boolean isActivo() {
+        return isActivo;
+    }
+
+    public void setIsActivo(boolean activo) {
+        isActivo = activo;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 
     public Long getId() {
@@ -54,27 +84,5 @@ public class Usuario
         this.contraseña = contraseña;
     }
 
-    public boolean isEsActivo() {
-        return esActivo;
-    }
 
-    public void setEsActivo(boolean esActivo) {
-        this.esActivo = esActivo;
-    }
-
-    public List<Rol> getRolList() {
-        return rolList;
-    }
-
-    public void setRolList(List<Rol> rolList) {
-        this.rolList = rolList;
-    }
-
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
 }

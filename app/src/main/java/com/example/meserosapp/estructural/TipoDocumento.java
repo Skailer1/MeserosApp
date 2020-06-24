@@ -1,22 +1,35 @@
 package com.example.meserosapp.estructural;
 
+import com.example.meserosapp.enums.RH;
+import com.example.meserosapp.enums.Sexo;
+
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
-public class TipoEmpleado
+public class TipoDocumento
 {
     private Long id;
-    private String nombre;
+    private String descripcionDocumento;
     private boolean isActivo;
-    private Date fechaCreacion;
+    private LocalTime fechaCreacion;
     private Date fechaActualizacion;
 
-    public TipoEmpleado(Long id, String nombre, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
+
+    public TipoDocumento(Long id, String descripcionDocumento, boolean isActivo, LocalTime fechaCreacion, Date fechaActualizacion) {
         this.id = id;
-        this.nombre = nombre;
+        this.descripcionDocumento = descripcionDocumento;
         this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public String getDescripcionDocumento() {
+        return descripcionDocumento;
+    }
+
+    public void setDescripcionDocumento(String descripcionDocumento) {
+        this.descripcionDocumento = descripcionDocumento;
     }
 
     public boolean isActivo() {
@@ -35,19 +48,11 @@ public class TipoEmpleado
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Date getFechaCreacion() {
+    public LocalTime getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(LocalTime fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 

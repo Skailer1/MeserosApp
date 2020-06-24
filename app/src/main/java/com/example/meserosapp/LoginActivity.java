@@ -22,9 +22,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-    public void btnRegistroClick(View view){
+    public void btnUsuarioClick(View view){
 
-        Intent intent2  = new Intent (LoginActivity.this, RegistroActivity.class  );
+        Intent intent2  = new Intent (LoginActivity.this, UsarioActivity.class  );
 
         startActivity(intent2);
 

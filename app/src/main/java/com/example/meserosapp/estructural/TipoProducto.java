@@ -1,17 +1,47 @@
 package com.example.meserosapp.estructural;
 
+import java.util.Date;
 import java.util.List;
 
 public class TipoProducto
 {
     private Long id;
     private String descripcion;
-    private List<Producto> productoList;
+    private boolean isActivo;
+    private Date fechaCreacion;
+    private Date fechaActualizacion;
 
-    public TipoProducto(Long id, String descripcion, List<Producto> productoList) {
+
+    public TipoProducto(Long id, String descripcion, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
         this.id = id;
         this.descripcion = descripcion;
-        this.productoList = productoList;
+        this.isActivo = isActivo;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public boolean isActivo() {
+        return isActivo;
+    }
+
+    public void setActivo(boolean activo) {
+        isActivo = activo;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 
     public Long getId() {
@@ -30,11 +60,5 @@ public class TipoProducto
         this.descripcion = descripcion;
     }
 
-    public List<Producto> getProductoList() {
-        return productoList;
-    }
 
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
-    }
 }

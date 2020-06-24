@@ -1,5 +1,8 @@
 package com.example.meserosapp.estructural;
 
+import com.example.meserosapp.enums.RH;
+import com.example.meserosapp.enums.Sexo;
+
 import java.util.Date;
 import java.util.List;
 
@@ -10,27 +13,32 @@ public class Empleado
     private long telefono;
     private String correo;
     private String direccion;
-    private boolean esActivo;
+    private RH rh;
+    private Sexo sexo;
+    private Long numeroDocumento;
+    private boolean isActivo;
     private Date fechaCreacion;
     private Date fechaActualizacion;
-    private Documento documento;
+    private TipoDocumento documento;
     private TipoEmpleado tipoEmpleado;
     private Usuario usuarioId;
-    private List<Mesa> mesaList;
 
-    public Empleado(Long id, String nombre, long telefono, String correo, String direccion, boolean esActivo, Date fechaCreacion, Date fechaActualizacion, Documento documento, TipoEmpleado tipoEmpleado, Usuario usuarioId, List<Mesa> mesaList) {
+
+    public Empleado(Long id, String nombre, long telefono, String correo, String direccion, RH rh, Sexo sexo, Long numeroDocumento, boolean isActivo, Date fechaCreacion, Date fechaActualizacion, TipoDocumento documento, TipoEmpleado tipoEmpleado, Usuario usuarioId) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
         this.direccion = direccion;
-        this.esActivo = esActivo;
+        this.rh = rh;
+        this.sexo = sexo;
+        this.numeroDocumento = numeroDocumento;
+        this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
         this.documento = documento;
         this.tipoEmpleado = tipoEmpleado;
         this.usuarioId = usuarioId;
-        this.mesaList = mesaList;
     }
 
     public Long getId() {
@@ -73,12 +81,12 @@ public class Empleado
         this.direccion = direccion;
     }
 
-    public boolean isEsActivo() {
-        return esActivo;
+    public boolean isActivo() {
+        return isActivo;
     }
 
-    public void setEsActivo(boolean esActivo) {
-        this.esActivo = esActivo;
+    public void setActivo(boolean activo) {
+        this.isActivo = activo;
     }
 
     public Date getFechaCreacion() {
@@ -97,11 +105,11 @@ public class Empleado
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public Documento getDocumento() {
+    public TipoDocumento getDocumento() {
         return documento;
     }
 
-    public void setDocumento(Documento documento) {
+    public void setDocumento(TipoDocumento documento) {
         this.documento = documento;
     }
 
@@ -121,12 +129,28 @@ public class Empleado
         this.usuarioId = usuarioId;
     }
 
-    public List<Mesa> getMesaList() {
-        return mesaList;
+    public RH getRh() {
+        return rh;
     }
 
-    public void setMesaList(List<Mesa> mesaList) {
-        this.mesaList = mesaList;
+    public void setRh(RH rh) {
+        this.rh = rh;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public Long getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(Long numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 }
 

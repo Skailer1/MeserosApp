@@ -3,7 +3,13 @@ package com.example.meserosapp.enums;
 public enum DescripcionEstado
 {
     CREADO,
-    EN_COCINA,
-    EN_PREPARACION,
-    ENTREGADO
+    COCINA,
+    PREPARACION,
+    ENTREGADO,;
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
 }

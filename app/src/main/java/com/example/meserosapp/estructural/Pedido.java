@@ -7,18 +7,70 @@ public class Pedido
 {
     private Long id;
     private Date fechaPedido;
-    private List<Mesa> mesaList;
-    private List<Impuesto> impuestoList;
-    private List<EstadoPedido> estadoPedidoList;
-    private DetallePedido detalleId;
+    private boolean isActivo;
+    private Date fechaCreacion;
+    private Date fechaActualizacion;
+    private Empleado empleadoId;
+    private Mesa mesaId;
+    private EstadoPedido estadoId;
 
-    public Pedido(Long id, Date fechaPedido, List<Mesa> mesaList, List<Impuesto> impuestoList, List<EstadoPedido> estadoPedidoList, DetallePedido detalleId) {
+    public Pedido(Long id, Date fechaPedido, boolean isActivo, Date fechaCreacion, Date fechaActualizacion, Empleado empleadoId, Mesa mesaId, EstadoPedido estadoId) {
         this.id = id;
         this.fechaPedido = fechaPedido;
-        this.mesaList = mesaList;
-        this.impuestoList = impuestoList;
-        this.estadoPedidoList = estadoPedidoList;
-        this.detalleId = detalleId;
+        this.isActivo = isActivo;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
+        this.empleadoId = empleadoId;
+        this.mesaId = mesaId;
+        this.estadoId = estadoId;
+    }
+
+    public boolean isActivo() {
+        return isActivo;
+    }
+
+    public void setActivo(boolean activo) {
+        isActivo = activo;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Date getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(Date fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public Empleado getEmpleadoId() {
+        return empleadoId;
+    }
+
+    public void setEmpleadoId(Empleado empleadoId) {
+        this.empleadoId = empleadoId;
+    }
+
+    public Mesa getMesaId() {
+        return mesaId;
+    }
+
+    public void setMesaId(Mesa mesaId) {
+        this.mesaId = mesaId;
+    }
+
+    public EstadoPedido getEstadoId() {
+        return estadoId;
+    }
+
+    public void setEstadoId(EstadoPedido estadoId) {
+        this.estadoId = estadoId;
     }
 
     public Long getId() {
@@ -37,35 +89,5 @@ public class Pedido
         this.fechaPedido = fechaPedido;
     }
 
-    public List<Mesa> getMesaList() {
-        return mesaList;
-    }
 
-    public void setMesaList(List<Mesa> mesaList) {
-        this.mesaList = mesaList;
-    }
-
-    public List<Impuesto> getImpuestoList() {
-        return impuestoList;
-    }
-
-    public void setImpuestoList(List<Impuesto> impuestoList) {
-        this.impuestoList = impuestoList;
-    }
-
-    public List<EstadoPedido> getEstadoPedidoList() {
-        return estadoPedidoList;
-    }
-
-    public void setEstadoPedidoList(List<EstadoPedido> estadoPedidoList) {
-        this.estadoPedidoList = estadoPedidoList;
-    }
-
-    public DetallePedido getDetalleId() {
-        return detalleId;
-    }
-
-    public void setDetalleId(DetallePedido detalleId) {
-        this.detalleId = detalleId;
-    }
 }
