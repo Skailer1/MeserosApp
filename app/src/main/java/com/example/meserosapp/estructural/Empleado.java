@@ -41,6 +41,10 @@ public class Empleado
         this.usuarioId = usuarioId;
     }
 
+    public Empleado (){
+
+    }
+
     public Long getId() {
         return id;
     }

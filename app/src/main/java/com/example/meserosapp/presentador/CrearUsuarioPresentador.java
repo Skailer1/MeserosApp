@@ -39,8 +39,8 @@ public class CrearUsuarioPresentador implements CrearUsuarioContrato.Presentador
         return new UsuarioApiAdapter() {
 
             @Override
-            public void enCrearUsuarioCorrecto(Usuario reserva) {
-                super.enCrearUsuarioCorrecto(reserva);
+            public void enCrearUsuarioCorrecto(Usuario usuario) {
+                super.enCrearUsuarioCorrecto(usuario);
                 vista.mostrarMensaje("Usuario creado");
             }
 

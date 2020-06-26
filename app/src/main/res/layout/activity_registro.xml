@@ -32,7 +32,7 @@
 
 
             <EditText
-                android:id="@+id/editText25"
+                android:id="@+id/txtNombreUsua"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -43,7 +43,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText26"
+                android:id="@+id/txtTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -55,7 +55,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText24"
+                android:id="@+id/txtCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -67,7 +67,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText23"
+                android:id="@+id/txtDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -79,7 +79,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText22"
+                android:id="@+id/txtRh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -91,7 +91,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText21"
+                android:id="@+id/txtSexo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -103,7 +103,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText20"
+                android:id="@+id/txtTipoEmpleado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -115,19 +115,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:fontFamily="@font/alike"
-                android:hint="Rol"
-                android:inputType="textPersonName"
-                android:textColor="@color/colorPrimary" />
-
-            <EditText
-                android:id="@+id/editText18"
+                android:id="@+id/txtUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -139,19 +127,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:fontFamily="@font/alike"
-                android:hint="Contraseña"
-                android:inputType="textPersonName"
-                android:textColor="@color/colorPrimary" />
-
-            <EditText
-                android:id="@+id/editText16"
+                android:id="@+id/txtTipoDocumento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -163,7 +139,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText15"
+                android:id="@+id/txtNumeroDocumento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
