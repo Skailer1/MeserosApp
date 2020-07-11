@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.meserosapp.R;
+import com.example.meserosapp.ui.mesa.MesasActivity;
+import com.example.meserosapp.ui.pago.PagoActivity;
 
 public class MenuActivity extends AppCompatActivity {
 

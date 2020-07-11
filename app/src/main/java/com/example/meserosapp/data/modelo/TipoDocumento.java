@@ -1,22 +1,55 @@
 package com.example.meserosapp.data.modelo;
 
-import java.time.LocalTime;
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class TipoDocumento
-{
+public class TipoDocumento {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("descripcionDocumento")
+    @Expose
     private String descripcionDocumento;
-    private boolean isActivo;
-    private LocalTime fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
 
-
-    public TipoDocumento(Long id, String descripcionDocumento, boolean isActivo, LocalTime fechaCreacion, Date fechaActualizacion) {
+    public TipoDocumento(Long id, String fechaCreacion, String fechaActualizacion, String descripcionDocumento, Boolean activo) {
         this.id = id;
-        this.descripcionDocumento = descripcionDocumento;
-        this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
+        this.descripcionDocumento = descripcionDocumento;
+        this.activo = activo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
 
@@ -28,36 +61,12 @@ public class TipoDocumento
         this.descripcionDocumento = descripcionDocumento;
     }
 
-    public boolean isActivo() {
-        return isActivo;
+    public Boolean getActivo() {
+        return activo;
     }
 
-    public void setActivo(boolean activo) {
-        isActivo = activo;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(LocalTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public Date getFechaActualizacion() {
-        return fechaActualizacion;
-    }
-
-    public void setFechaActualizacion(Date fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
 }

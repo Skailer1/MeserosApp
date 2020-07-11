@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-public class Mesa implements Serializable
+public class Mesa
 {
     @SerializedName("id")
     @Expose
@@ -15,19 +15,23 @@ public class Mesa implements Serializable
     @SerializedName("nombreMesa")
     @Expose
     private String nombre;
-    @SerializedName("fechaActualizacion")
+    @SerializedName("imagenUrl")
+    @Expose
+    private String imagenUrl;
+    @SerializedName("activo")
     @Expose
     private boolean isActivo;
     @SerializedName("fechaCreacion")
     @Expose
     private String fechaCreacion;
-    @SerializedName("activo")
+    @SerializedName("fechaActualizacion")
     @Expose
     private String fechaActualizacion;
 
-    public Mesa(Long id, String nombre, boolean isActivo, String fechaCreacion, String fechaActualizacion) {
+    public Mesa(Long id, String nombre, String imagenUrl, boolean isActivo, String fechaCreacion, String fechaActualizacion) {
         this.id = id;
         this.nombre = nombre;
+        this.imagenUrl = imagenUrl;
         this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
@@ -59,6 +63,14 @@ public class Mesa implements Serializable
 
     public String getFechaCreacion() {
         return fechaCreacion;
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 
     public void setFechaCreacion(String fechaCreacion) {

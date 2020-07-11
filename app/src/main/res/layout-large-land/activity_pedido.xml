@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.PedidoActivity">
+    tools:context=".ui.pedido.PedidoActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ItemsDetalleId"
+        android:id="@+id/detalleList"
         android:layout_width="783dp"
-        android:layout_height="213dp"
+        android:layout_height="199dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetalleId" />
+        app:layout_constraintTop_toBottomOf="@+id/detalleId" />
 
     <TextView
-        android:id="@+id/TotalID"
+        android:id="@+id/totalId"
         android:layout_width="209dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="28dp"
         android:fontFamily="@font/alike"
@@ -32,10 +32,11 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ItemsDetalleId" />
+        app:layout_constraintTop_toBottomOf="@+id/detalleList"
+        app:layout_constraintVertical_bias="0.353" />
 
     <TextView
-        android:id="@+id/FechaID"
+        android:id="@+id/fechaId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -48,10 +49,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloId" />
 
     <TextView
-        android:id="@+id/PedidoID"
+        android:id="@+id/pedidoId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,13 +62,13 @@
         android:text="Codigo"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/FechaID"
+        app:layout_constraintEnd_toStartOf="@+id/fechaId"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloId" />
 
     <TextView
-        android:id="@+id/DetalleId"
+        android:id="@+id/detalleId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -78,7 +79,7 @@
         android:textSize="24sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PedidoID" />
+        app:layout_constraintTop_toBottomOf="@+id/pedidoId" />
 
     <Button
         android:id="@+id/btnAgregarPedido"
@@ -94,8 +95,8 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.998"
-        app:layout_constraintStart_toEndOf="@+id/DetalleId"
-        app:layout_constraintTop_toBottomOf="@+id/FechaID" />
+        app:layout_constraintStart_toEndOf="@+id/detalleId"
+        app:layout_constraintTop_toBottomOf="@+id/fechaId" />
 
     <Button
         android:id="@+id/btnFinalizarPedido"
@@ -113,12 +114,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintStart_toEndOf="@+id/TotalID"
-        app:layout_constraintTop_toBottomOf="@+id/ItemsDetalleId"
+        app:layout_constraintStart_toEndOf="@+id/totalId"
+        app:layout_constraintTop_toBottomOf="@+id/detalleList"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tituloId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

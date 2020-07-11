@@ -1,16 +1,14 @@
 package com.example.meserosapp.ui.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.meserosapp.R;
-import com.example.meserosapp.data.preferences.SharedPreferencesManager;
 import com.example.meserosapp.ui.MenuActivity;
-import com.example.meserosapp.ui.UsarioActivity;
+import com.example.meserosapp.ui.usuario.UsuarioActivity;
 
 import java.util.Objects;
 
@@ -37,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private void observableViewModel() {
         loginViewModel.getAuthToken().observe(this, authToken -> {
             if (authToken != null) {
-                Intent intent1 = new Intent(LoginActivity.this, MenuActivity.class);
+                Intent intent1 = new Intent(LoginActivity.this, UsuarioActivity.class);
                 startActivity(intent1);
                 finish();
 
@@ -51,13 +49,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    //estalla la app amigo
+
     public void btnLoginIdClick(View view) {
         loginViewModel.login(txtEmail.getText().toString(), txtPassword.getText().toString());
     }
 
     public void btnUsuarioClick(View view) {
-        Intent intent2 = new Intent(LoginActivity.this, UsarioActivity.class);
+        Intent intent2 = new Intent(LoginActivity.this, UsuarioActivity.class);
         startActivity(intent2);
     }
 }

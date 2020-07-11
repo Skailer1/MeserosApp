@@ -3,45 +3,67 @@ package com.example.meserosapp.data.modelo;
 import com.example.meserosapp.data.enums.RH;
 import com.example.meserosapp.data.enums.Sexo;
 
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Empleado
-{
+import java.security.acl.LastOwnerException;
+
+public class Empleado {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
-    private long telefono;
-    private String correo;
+    @SerializedName("telefono")
+    @Expose
+    private Integer telefono;
+    @SerializedName("direccion")
+    @Expose
     private String direccion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("rh")
+    @Expose
     private RH rh;
+    @SerializedName("numeroDocumento")
+    @Expose
+    private Integer numeroDocumento;
+    @SerializedName("sexo")
+    @Expose
     private Sexo sexo;
-    private Long numeroDocumento;
-    private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
-    private TipoDocumento documento;
-    private TipoEmpleado tipoEmpleado;
+    @SerializedName("tipoDocumento")
+    @Expose
+    private TipoDocumento tipoDocumento;
+    @SerializedName("usuarioId")
+    @Expose
     private Usuario usuarioId;
+    @SerializedName("tipoEmpleado")
+    @Expose
+    private TipoEmpleado tipoEmpleado;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
 
-
-    public Empleado(Long id, String nombre, long telefono, String correo, String direccion, RH rh, Sexo sexo, Long numeroDocumento, boolean isActivo, Date fechaCreacion, Date fechaActualizacion, TipoDocumento documento, TipoEmpleado tipoEmpleado, Usuario usuarioId) {
+    public Empleado(Long id, String nombre, Integer telefono,  String direccion, String fechaCreacion, String fechaActualizacion, RH rh, Integer numeroDocumento, Sexo sexo, TipoDocumento tipoDocumento, Usuario usuarioId, TipoEmpleado tipoEmpleado, Boolean activo) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.correo = correo;
         this.direccion = direccion;
-        this.rh = rh;
-        this.sexo = sexo;
-        this.numeroDocumento = numeroDocumento;
-        this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
-        this.documento = documento;
-        this.tipoEmpleado = tipoEmpleado;
+        this.rh = rh;
+        this.numeroDocumento = numeroDocumento;
+        this.sexo = sexo;
+        this.tipoDocumento = tipoDocumento;
         this.usuarioId = usuarioId;
-    }
-
-    public Empleado (){
-
+        this.tipoEmpleado = tipoEmpleado;
+        this.activo = activo;
     }
 
     public Long getId() {
@@ -60,21 +82,14 @@ public class Empleado
         this.nombre = nombre;
     }
 
-    public long getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(long telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
 
     public String getDireccion() {
         return direccion;
@@ -84,52 +99,20 @@ public class Empleado
         this.direccion = direccion;
     }
 
-    public boolean isActivo() {
-        return isActivo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.isActivo = activo;
-    }
-
-    public Date getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Date getFechaActualizacion() {
+    public String getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(Date fechaActualizacion) {
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
-    }
-
-    public TipoDocumento getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(TipoDocumento documento) {
-        this.documento = documento;
-    }
-
-    public TipoEmpleado getTipoEmpleado() {
-        return tipoEmpleado;
-    }
-
-    public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
-        this.tipoEmpleado = tipoEmpleado;
-    }
-
-    public Usuario getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(Usuario usuarioId) {
-        this.usuarioId = usuarioId;
     }
 
     public RH getRh() {
@@ -140,6 +123,14 @@ public class Empleado
         this.rh = rh;
     }
 
+    public Integer getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(Integer numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
     public Sexo getSexo() {
         return sexo;
     }
@@ -148,12 +139,36 @@ public class Empleado
         this.sexo = sexo;
     }
 
-    public Long getNumeroDocumento() {
-        return numeroDocumento;
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setNumeroDocumento(Long numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
+
+    public Usuario getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Usuario usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public TipoEmpleado getTipoEmpleado() {
+        return tipoEmpleado;
+    }
+
+    public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
+        this.tipoEmpleado = tipoEmpleado;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
 }
-

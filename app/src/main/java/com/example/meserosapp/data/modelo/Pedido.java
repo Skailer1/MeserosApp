@@ -1,19 +1,38 @@
 package com.example.meserosapp.data.modelo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class Pedido
 {
+    @SerializedName("id")
+    @Expose
     private Long id;
-    private Date fechaPedido;
+    @SerializedName("fechaPedido")
+    @Expose
+    private String fechaPedido;
+    @SerializedName("activo")
+    @Expose
     private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("empleadoId")
+    @Expose
     private Empleado empleadoId;
+    @SerializedName("mesaId")
+    @Expose
     private Mesa mesaId;
+    @SerializedName("estadoId")
+    @Expose
     private EstadoPedido estadoId;
 
-    public Pedido(Long id, Date fechaPedido, boolean isActivo, Date fechaCreacion, Date fechaActualizacion, Empleado empleadoId, Mesa mesaId, EstadoPedido estadoId) {
+    public Pedido(Long id, String fechaPedido, boolean isActivo, String fechaCreacion, String fechaActualizacion, Empleado empleadoId, Mesa mesaId, EstadoPedido estadoId) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.isActivo = isActivo;
@@ -32,19 +51,27 @@ public class Pedido
         isActivo = activo;
     }
 
-    public Date getFechaCreacion() {
+    public String getFechaPedido() {
+        return fechaPedido;
+    }
+
+    public void setFechaPedido(String fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
+
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Date getFechaActualizacion() {
+    public String getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(Date fechaActualizacion) {
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
 
@@ -80,13 +107,7 @@ public class Pedido
         this.id = id;
     }
 
-    public Date getFechaPedido() {
-        return fechaPedido;
-    }
 
-    public void setFechaPedido(Date fechaPedido) {
-        this.fechaPedido = fechaPedido;
-    }
 
 
 }

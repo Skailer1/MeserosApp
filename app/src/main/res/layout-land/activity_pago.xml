@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.PagoActivity">
+    tools:context=".ui.pago.PagoActivity">
 
     <TextView
-        android:id="@+id/PedidosCId"
+        android:id="@+id/pedidosPagoId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -24,22 +24,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/ListPagoId"
-        android:layout_width="707dp"
-        android:layout_height="173dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pagoList"
+        android:layout_width="714dp"
+        android:layout_height="162dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/alike"
-        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/entregarId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PedidosCId" />
+        app:layout_constraintTop_toBottomOf="@+id/pedidosPagoId" />
 
     <Button
-        android:id="@+id/RefrescarId"
+        android:id="@+id/refrescarId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -50,11 +50,11 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListPagoId"
+        app:layout_constraintTop_toBottomOf="@+id/pagoList"
         app:layout_constraintVertical_bias="0.181" />
 
     <Button
-        android:id="@+id/EntregarId"
+        android:id="@+id/entregarId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,8 +68,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.984"
-        app:layout_constraintStart_toEndOf="@+id/RefrescarId"
-        app:layout_constraintTop_toBottomOf="@+id/ListPagoId"
+        app:layout_constraintStart_toEndOf="@+id/refrescarId"
+        app:layout_constraintTop_toBottomOf="@+id/pagoList"
         app:layout_constraintVertical_bias="0.181" />
 
 

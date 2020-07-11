@@ -1,18 +1,35 @@
 package com.example.meserosapp.data.modelo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class DetallePedido
 {
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("cantidad")
+    @Expose
     private int cantidad;
+    @SerializedName("valorUnitario")
+    @Expose
     private double valorUnitario;
+    @SerializedName("activo")
+    @Expose
     private double total;
+    @SerializedName("activo")
+    @Expose
     private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
 
-    public DetallePedido(Long id, int cantidad, double valorUnitario, double total, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
+    public DetallePedido(Long id, int cantidad, double valorUnitario, double total, boolean isActivo, String fechaCreacion, String fechaActualizacion) {
         this.id = id;
         this.cantidad = cantidad;
         this.valorUnitario = valorUnitario;
@@ -63,19 +80,19 @@ public class DetallePedido
         isActivo = activo;
     }
 
-    public Date getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Date getFechaActualizacion() {
+    public String getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(Date fechaActualizacion) {
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
 }

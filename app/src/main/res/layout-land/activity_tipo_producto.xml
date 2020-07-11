@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.TipoProductoActivity">
+    tools:context=".ui.tipoproducto.TipoProductoActivity">
 
     <TextView
-        android:id="@+id/CategoriaId"
+        android:id="@+id/categoriaId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -24,18 +24,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/CartegoriaListId"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tipoProductoList"
         android:layout_width="711dp"
-        android:layout_height="337dp"
+        android:layout_height="258dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CategoriaId"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/categoriaId"
+        app:layout_constraintVertical_bias="0.077" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,37 +12,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.TipoDocumentoActivity"></activity>
+        <activity android:name=".ui.tipoDocumento.TipoDocumentoActivity"></activity>
         <activity
-            android:name=".ui.TipoEmpleadoActivity"
-            android:parentActivityName=".ui.UsarioActivity" />
+            android:name=".ui.tipoEmpleado.TipoEmpleadoActivity"
+            android:parentActivityName=".ui.usuario.UsuarioActivity" />
         <activity
-            android:name=".ui.UsarioActivity"
+            android:name=".ui.usuario.UsuarioActivity"
             android:parentActivityName=".ui.login.LoginActivity" />
         <activity android:name=".ui.DialogPagoActivity" />
         <activity
-            android:name=".ui.RegistroActivity"
-            android:parentActivityName=".ui.TipoEmpleadoActivity" />
+            android:name=".ui.registro.RegistroActivity"
+            android:parentActivityName=".ui.tipoEmpleado.TipoEmpleadoActivity" />
         <activity
-            android:name=".ui.PagoActivity"
+            android:name=".ui.pago.PagoActivity"
             android:parentActivityName=".ui.MenuActivity" />
         <activity
             android:name=".ui.MenuActivity"
             android:parentActivityName=".ui.login.LoginActivity" />
         <activity
-            android:name=".ui.ProductoActivity"
-            android:parentActivityName=".ui.TipoProductoActivity" />
+            android:name=".ui.producto.ProductoActivity"
+            android:parentActivityName=".ui.tipoproducto.TipoProductoActivity" />
         <activity
-            android:name=".ui.TipoProductoActivity"
-            android:parentActivityName=".ui.PedidoActivity" />
+            android:name=".ui.tipoproducto.TipoProductoActivity"
+            android:parentActivityName=".ui.pedido.PedidoActivity" />
         <activity
             android:name=".ui.DetallePedidoActivity"
-            android:parentActivityName=".ui.PedidoActivity" />
+            android:parentActivityName=".ui.pedido.PedidoActivity" />
         <activity
-            android:name=".ui.PedidoActivity"
-            android:parentActivityName=".ui.MesasActivity" />
+            android:name=".ui.pedido.PedidoActivity"
+            android:parentActivityName=".ui.mesa.MesasActivity" />
         <activity
-            android:name=".ui.MesasActivity"
+            android:name=".ui.mesa.MesasActivity"
             android:parentActivityName=".ui.MenuActivity" />
         <activity
             android:name=".ui.login.LoginActivity"

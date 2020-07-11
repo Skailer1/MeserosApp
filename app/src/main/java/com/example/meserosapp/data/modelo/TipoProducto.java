@@ -1,46 +1,36 @@
 package com.example.meserosapp.data.modelo;
 
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class TipoProducto
-{
+public class TipoProducto {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("descripcion")
+    @Expose
     private String descripcion;
-    private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("imagenUrl")
+    @Expose
+    private String imagenUrl;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
 
-
-    public TipoProducto(Long id, String descripcion, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
+    public TipoProducto(Long id, String descripcion, String imagenUrl, String fechaActualizacion, String fechaCreacion, Boolean activo) {
         this.id = id;
         this.descripcion = descripcion;
-        this.isActivo = isActivo;
-        this.fechaCreacion = fechaCreacion;
+        this.imagenUrl = imagenUrl;
         this.fechaActualizacion = fechaActualizacion;
-    }
-
-    public boolean isActivo() {
-        return isActivo;
-    }
-
-    public void setActivo(boolean activo) {
-        isActivo = activo;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
-    }
-
-    public Date getFechaActualizacion() {
-        return fechaActualizacion;
-    }
-
-    public void setFechaActualizacion(Date fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
+        this.activo = activo;
     }
 
     public Long getId() {
@@ -59,5 +49,36 @@ public class TipoProducto
         this.descripcion = descripcion;
     }
 
+    public String getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(String fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
 
 }

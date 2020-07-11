@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.ProductoActivity">
+    tools:context=".ui.producto.ProductoActivity">
 
     <TextView
         android:id="@+id/ProductoId"
@@ -23,16 +23,17 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ProductosListId"
         android:layout_width="706dp"
-        android:layout_height="311dp"
+        android:layout_height="199dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProductoId" />
+        app:layout_constraintTop_toBottomOf="@+id/ProductoId"
+        app:layout_constraintVertical_bias="0.094" />
 
     <Button
         android:id="@+id/btnAgregarProducto"

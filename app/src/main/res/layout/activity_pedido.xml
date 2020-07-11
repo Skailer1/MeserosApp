@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.PedidoActivity">
+    tools:context=".ui.pedido.PedidoActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ItemsDetalleId"
-        android:layout_width="395dp"
+        android:id="@+id/detalleList"
+        android:layout_width="392dp"
         android:layout_height="498dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/TotalID"
+        app:layout_constraintBottom_toTopOf="@+id/totalId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/TotalID"
+        android:id="@+id/totalId"
         android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/FechaID"
+        android:id="@+id/fechaId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -46,15 +46,15 @@
         android:fontFamily="@font/alike"
         android:text="Fecha"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/ItemsDetalleId"
+        app:layout_constraintBottom_toTopOf="@+id/detalleList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/tituloId"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/PedidoID"
+        android:id="@+id/pedidoId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -63,13 +63,13 @@
         android:fontFamily="@font/alike"
         android:text="Codigo"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toStartOf="@+id/FechaID"
+        app:layout_constraintEnd_toStartOf="@+id/fechaId"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloId" />
 
     <TextView
-        android:id="@+id/DetalleId"
+        android:id="@+id/detalleId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -80,11 +80,11 @@
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/ItemsDetalleId"
+        app:layout_constraintBottom_toTopOf="@+id/detalleList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PedidoID"
+        app:layout_constraintTop_toBottomOf="@+id/pedidoId"
         app:layout_constraintVertical_bias="0.83" />
 
     <Button
@@ -99,9 +99,9 @@
         android:onClick="btnAgregarPedidoClick"
         android:text="Agregar Productos"
         android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/ItemsDetalleId"
+        app:layout_constraintBottom_toTopOf="@+id/detalleList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FechaID"
+        app:layout_constraintTop_toBottomOf="@+id/fechaId"
         app:layout_constraintVertical_bias="0.756" />
 
     <Button
@@ -121,11 +121,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ItemsDetalleId"
+        app:layout_constraintTop_toBottomOf="@+id/detalleList"
         app:layout_constraintVertical_bias="0.766" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tituloId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

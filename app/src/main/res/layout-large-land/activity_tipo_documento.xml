@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.TipoDocumentoActivity">
+    tools:context=".ui.tipoDocumento.TipoDocumentoActivity">
 
     <TextView
         android:id="@+id/textView9"

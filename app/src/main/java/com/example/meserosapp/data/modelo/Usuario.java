@@ -1,54 +1,46 @@
 package com.example.meserosapp.data.modelo;
 
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Usuario
-{
+public class Usuario {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("nombreUsuario")
+    @Expose
     private String nombreUsuario;
+    @SerializedName("contrasenia")
+    @Expose
+    private String contrasenia;
+    @SerializedName("correo")
+    @Expose
     private String correo;
-    private String contraseña;
-    private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
 
-
-    public Usuario(Long id, String nombreUsuario, String correo, String contraseña, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
+    public Usuario(Long id, String nombreUsuario, String contrasenia, String correo ,String fechaActualizacion, String fechaCreacion, Boolean activo) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
         this.correo = correo;
-        this.contraseña = contraseña;
-        this.isActivo = isActivo;
-        this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
-    }
-
-    public Usuario() {
-
-    }
-
-    public boolean isActivo() {
-        return isActivo;
-    }
-
-    public void setIsActivo(boolean activo) {
-        isActivo = activo;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+        this.activo = activo;
     }
 
-    public Date getFechaActualizacion() {
-        return fechaActualizacion;
-    }
-
-    public void setFechaActualizacion(Date fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
+    public Usuario(String nombreUsuario, String contrasenia, String correo) {
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
     }
 
     public Long getId() {
@@ -67,6 +59,14 @@ public class Usuario
         this.nombreUsuario = nombreUsuario;
     }
 
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -75,13 +75,28 @@ public class Usuario
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getFechaActualizacion() {
+        return fechaActualizacion;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setFechaActualizacion(String fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
 
 }

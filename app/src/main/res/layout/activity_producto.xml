@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ui.ProductoActivity">
+    tools:context=".ui.producto.ProductoActivity">
 
     <TextView
-        android:id="@+id/ProductoId"
+        android:id="@+id/productoId"
         android:layout_width="256dp"
         android:layout_height="79dp"
         android:layout_marginTop="24dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ProductosListId"
+        android:id="@+id/productosList"
         android:layout_width="395dp"
         android:layout_height="667dp"
         android:layout_marginStart="8dp"

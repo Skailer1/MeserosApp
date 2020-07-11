@@ -1,29 +1,33 @@
 package com.example.meserosapp.data.modelo;
 
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class TipoEmpleado
-{
+public class TipoEmpleado {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
-    private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
 
-    public TipoEmpleado(Long id, String nombre, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
+
+    public TipoEmpleado(Long id, String nombre, String fechaCreacion, String fechaActualizacion, Boolean activo) {
         this.id = id;
         this.nombre = nombre;
-        this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
-    }
-
-    public boolean isActivo() {
-        return isActivo;
-    }
-
-    public void setActivo(boolean activo) {
-        isActivo = activo;
+        this.activo = activo;
     }
 
     public Long getId() {
@@ -42,20 +46,28 @@ public class TipoEmpleado
         this.nombre = nombre;
     }
 
-    public Date getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Date getFechaActualizacion() {
+    public String getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(Date fechaActualizacion) {
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
 }

@@ -17,7 +17,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/colorButton"
         android:fontFamily="@font/alike"
-        android:onClick="btnRegistroClick"
+        android:onClick="btnUsuarioClick"
         android:text="Registrarse"
         android:textColor="@color/colorAccent"
         android:textSize="24sp"

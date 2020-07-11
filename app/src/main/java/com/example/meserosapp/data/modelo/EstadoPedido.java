@@ -1,26 +1,34 @@
 package com.example.meserosapp.data.modelo;
 
 import com.example.meserosapp.data.enums.DescripcionEstado;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
+public class EstadoPedido {
 
-public class EstadoPedido
-{
+    @SerializedName("id")
+    @Expose
     private Long id;
+    @SerializedName("descripcionEstado")
+    @Expose
     private DescripcionEstado descripcionEstado;
-    private boolean isActivo;
-    private Date fechaCreacion;
-    private Date fechaActualizacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
 
-    public EstadoPedido(Long id, DescripcionEstado descripcionEstado, boolean isActivo, Date fechaCreacion, Date fechaActualizacion) {
+    public EstadoPedido(Long id, DescripcionEstado descripcionEstado, String fechaActualizacion, String fechaCreacion, Boolean activo) {
         this.id = id;
         this.descripcionEstado = descripcionEstado;
-        this.isActivo = isActivo;
-        this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
+        this.fechaCreacion = fechaCreacion;
+        this.activo = activo;
     }
-
-
 
     public Long getId() {
         return id;
@@ -30,35 +38,36 @@ public class EstadoPedido
         this.id = id;
     }
 
-    public DescripcionEstado getDescripcionEstado() {
+    public DescripcionEstado estado() {
         return descripcionEstado;
     }
 
-    public void setDescripcionEstado(DescripcionEstado descripcionEstado) {
-        this.descripcionEstado = descripcionEstado;
+    public void setDescripcionEstado(DescripcionEstado estado) {
+        this.descripcionEstado = estado;
     }
 
-    public boolean isActivo() {
-        return isActivo;
-    }
-
-    public void setActivo(boolean activo) {
-        isActivo = activo;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public Date getFechaActualizacion() {
+    public String getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(Date fechaActualizacion) {
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
+
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
 }

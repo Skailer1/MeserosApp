@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorAccent"
-    tools:context=".ui.RegistroActivity">
+    tools:context=".ui.registro.RegistroActivity">
 
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/viewTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -22,7 +22,7 @@
         android:textStyle="bold|italic" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/viewDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -46,7 +46,7 @@
 
 
             <EditText
-                android:id="@+id/editText25"
+                android:id="@+id/txtEmpleado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -57,7 +57,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <EditText
-                android:id="@+id/editText26"
+                android:id="@+id/txtTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -69,19 +69,7 @@
                 android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/editText24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Correo"
-                android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
-
-            <EditText
-                android:id="@+id/editText23"
+                android:id="@+id/txtDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -93,7 +81,7 @@
                 android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/editText22"
+                android:id="@+id/txtRh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -105,7 +93,7 @@
                 android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/editText21"
+                android:id="@+id/txtSexo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -116,32 +104,34 @@
                 android:fontFamily="@font/alike"
                 android:textColor="@color/colorPrimary"/>
 
-            <EditText
-                android:id="@+id/editText20"
+            <TextView
+                android:id="@+id/tipoEmpleadoTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Tipo Empleado"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:text="Seleccione tipo empleado"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="italic" />
 
-            <EditText
-                android:id="@+id/editText19"
+            <Spinner
+                android:id="@+id/tipoEmpleadoList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Rol"
-                android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSexo" />
+
+
+
 
             <EditText
-                android:id="@+id/editText18"
+                android:id="@+id/txtUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -152,32 +142,31 @@
                 android:fontFamily="@font/alike"
                 android:textColor="@color/colorPrimary"/>
 
-            <EditText
-                android:id="@+id/editText17"
+            <TextView
+                android:id="@+id/tipoDocumentoTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Contraseña"
                 android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                android:text="Seleccione tipo documento"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="italic" />
 
-            <EditText
-                android:id="@+id/editText16"
+            <Spinner
+                android:id="@+id/tipoDocumentoList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Tipo Documento"
-                android:fontFamily="@font/alike"
-                android:textColor="@color/colorPrimary"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
 
             <EditText
-                android:id="@+id/editText15"
+                android:id="@+id/txtNumeroDocumento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

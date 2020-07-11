@@ -1,48 +1,57 @@
 package com.example.meserosapp.data.modelo;
 
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Producto
-{
+public class Producto {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
-    private int cantidadEnStock;
-    private String fotoProducto;
-    private double iva;
-    private double costo;
-    private Date fechaCreación;
-    private Date fechaActualizacion;
+    @SerializedName("cantidadEnStock")
+    @Expose
+    private Integer cantidadEnStock;
+    @SerializedName("imagenUrl")
+    @Expose
+    private String imagenUrl;
+    @SerializedName("costo")
+    @Expose
+    private Double costo;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("nombreProducto")
+    @Expose
     private String nombreProducto;
-    private Boolean isActivo;
+    @SerializedName("iva")
+    @Expose
+    private Double iva;
+    @SerializedName("tipoProducto")
+    @Expose
     private TipoProducto tipoProducto;
 
-    public Producto(Long id, int cantidadEnStock, String fotoProducto, double iva, double costo, Date fechaCreación, Date fechaActualizacion, String nombreProducto, Boolean isActivo, TipoProducto tipoProducto) {
+    public Producto(Long id, Integer cantidadEnStock, String fotoProducto, Double costo, String fechaCreacion, String fechaActualizacion, String nombreProducto, Double iva, TipoProducto tipoProducto, Boolean activo) {
         this.id = id;
         this.cantidadEnStock = cantidadEnStock;
-        this.fotoProducto = fotoProducto;
-        this.iva = iva;
+        this.imagenUrl = fotoProducto;
         this.costo = costo;
-        this.fechaCreación = fechaCreación;
+        this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
         this.nombreProducto = nombreProducto;
-        this.isActivo = isActivo;
-        this.tipoProducto = tipoProducto;
-    }
-
-    public String getFotoProducto() {
-        return fotoProducto;
-    }
-
-    public void setFotoProducto(String fotoProducto) {
-        this.fotoProducto = fotoProducto;
-    }
-
-    public double getIva() {
-        return iva;
-    }
-
-    public void setIva(double iva) {
         this.iva = iva;
+        this.tipoProducto = tipoProducto;
+        this.activo = activo;
     }
+
+    @SerializedName("activo")
+    @Expose
+
+
+
+    private Boolean activo;
 
     public Long getId() {
         return id;
@@ -52,35 +61,43 @@ public class Producto
         this.id = id;
     }
 
-    public int getCantidadEnStock() {
+    public Integer getCantidadEnStock() {
         return cantidadEnStock;
     }
 
-    public void setCantidadEnStock(int cantidadEnStock) {
+    public void setCantidadEnStock(Integer cantidadEnStock) {
         this.cantidadEnStock = cantidadEnStock;
     }
 
-    public double getCosto() {
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+
+    public Double getCosto() {
         return costo;
     }
 
-    public void setCosto(double costo) {
+    public void setCosto(Double costo) {
         this.costo = costo;
     }
 
-    public Date getFechaCreación() {
-        return fechaCreación;
+    public String getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setFechaCreación(Date fechaCreación) {
-        this.fechaCreación = fechaCreación;
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
-    public Date getFechaActualizacion() {
+    public String getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(Date fechaActualizacion) {
+    public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
 
@@ -92,12 +109,12 @@ public class Producto
         this.nombreProducto = nombreProducto;
     }
 
-    public Boolean getIsActivo() {
-        return isActivo;
+    public Double getIva() {
+        return iva;
     }
 
-    public void setIsActivo(Boolean isActivo) {
-        this.isActivo = isActivo;
+    public void setIva(Double iva) {
+        this.iva = iva;
     }
 
     public TipoProducto getTipoProducto() {
@@ -106,6 +123,14 @@ public class Producto
 
     public void setTipoProducto(TipoProducto tipoProducto) {
         this.tipoProducto = tipoProducto;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
 }
