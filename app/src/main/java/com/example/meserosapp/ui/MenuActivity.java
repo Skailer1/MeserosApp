@@ -8,6 +8,7 @@ import android.view.View;
 import com.example.meserosapp.R;
 import com.example.meserosapp.ui.mesa.MesasActivity;
 import com.example.meserosapp.ui.pago.PagoActivity;
+import com.example.meserosapp.ui.usuario.UsuarioActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -35,6 +36,15 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent2  = new Intent (MenuActivity.this, PagoActivity.class  );
 
         startActivity(intent2);
+
+
+    }
+
+    public void btnRegistroActivityClick(View view){
+
+        Intent intent  = new Intent (MenuActivity.this, UsuarioActivity.class  );
+
+        startActivity(intent);
 
 
     }

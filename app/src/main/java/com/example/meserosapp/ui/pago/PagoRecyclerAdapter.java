@@ -1,6 +1,7 @@
 package com.example.meserosapp.ui.pago;
 
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,8 @@ public class PagoRecyclerAdapter  extends RecyclerView.Adapter<PagoRecyclerAdapt
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(pedidos.get(position), position);
 
+
+
     }
 
 
@@ -52,21 +55,23 @@ public class PagoRecyclerAdapter  extends RecyclerView.Adapter<PagoRecyclerAdapt
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtOrderId /*, txtNombreProducto, txtCosto, txtCantidadStock*/;
+        private TextView txtOrderId , txtFechaPedido, txtEmpleado, txtMesa;
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txtOrderId = itemView.findViewById(R.id.txtOrderId);
-         //   txtNombreProducto = itemView.findViewById(R.id.txtNombreProducto);
-         //   txtCosto = itemView.findViewById(R.id.txtCosto);
-         //   txtCantidadStock = itemView.findViewById(R.id.txtCantidadStock);
+            txtFechaPedido = itemView.findViewById(R.id.txtFechaPedido);
+            txtMesa = itemView.findViewById(R.id.txtMesa);
+            txtEmpleado = itemView.findViewById(R.id.txtEmpleado);
+
+
         }
 
         void bind(Pedido pedido, int position) {
             txtOrderId.setText(String.valueOf(pedido.getId()));
-           // txtNombreProducto.setText(producto.getNombreProducto());
-           // txtCosto.setText(String.valueOf(producto.getCosto()));
-           // txtCantidadStock.setText(String.valueOf(producto.getCantidadEnStock()));
+            txtFechaPedido.setText(String.valueOf(pedido.getFechaPedido()));
+            txtMesa.setText(pedido.getMesaId().getNombre());
+            txtEmpleado.setText(pedido.getUsuarioId().getNombreUsuario());
             itemView.setOnClickListener(v -> onItemClickListener.onItemClick(pedido, position));
         }
     }

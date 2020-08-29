@@ -68,7 +68,7 @@ public class ProductoRecyclerAdapter extends RecyclerView.Adapter<ProductoRecycl
         void bind(Producto producto, int position) {
             txtProductoId.setText(String.valueOf(producto.getId()));
             txtNombreProducto.setText(producto.getNombreProducto());
-            txtCosto.setText(String.valueOf(producto.getCosto()));
+            txtCosto.setText(producto.getTipoProducto().getDescripcion());
             txtCantidadStock.setText(String.valueOf(producto.getCantidadEnStock()));
             //  Picasso.get().load(productos.get(position).getImagenUrl());
             itemView.setOnClickListener(v -> onItemClickListener.onItemClick(producto, position));

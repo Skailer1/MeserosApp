@@ -1,6 +1,7 @@
 package com.example.meserosapp.data.modelo;
 
 import com.example.meserosapp.data.enums.DescripcionEstado;
+import com.example.meserosapp.data.singleton.Singleton;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -11,7 +12,7 @@ public class EstadoPedido {
     private Long id;
     @SerializedName("descripcionEstado")
     @Expose
-    private DescripcionEstado descripcionEstado;
+    private String descripcionEstado;
     @SerializedName("fechaActualizacion")
     @Expose
     private String fechaActualizacion;
@@ -22,12 +23,16 @@ public class EstadoPedido {
     @Expose
     private Boolean activo;
 
-    public EstadoPedido(Long id, DescripcionEstado descripcionEstado, String fechaActualizacion, String fechaCreacion, Boolean activo) {
+    public EstadoPedido(Long id, String descripcionEstado, String fechaActualizacion, String fechaCreacion, Boolean activo) {
         this.id = id;
         this.descripcionEstado = descripcionEstado;
         this.fechaActualizacion = fechaActualizacion;
         this.fechaCreacion = fechaCreacion;
         this.activo = activo;
+    }
+
+    public EstadoPedido(String descripcionEstado) {
+        this.descripcionEstado = descripcionEstado;
     }
 
     public Long getId() {
@@ -38,11 +43,11 @@ public class EstadoPedido {
         this.id = id;
     }
 
-    public DescripcionEstado estado() {
+    public String estado() {
         return descripcionEstado;
     }
 
-    public void setDescripcionEstado(DescripcionEstado estado) {
+    public void setDescripcionEstado(String estado) {
         this.descripcionEstado = estado;
     }
 

@@ -13,29 +13,29 @@ import com.example.meserosapp.R;
 import com.example.meserosapp.data.modelo.TipoProducto;
 import com.example.meserosapp.ui.producto.ProductoActivity;
 
-public class TipoProductoActivity extends AppCompatActivity implements TipoProductoRecyclerAdapter.OnItemClickListener{
+public class TipoProductoActivity extends AppCompatActivity /* implements TipoProductoRecyclerAdapter.OnItemClickListener*/{
 
-    private TipoProductoViewModel tipoProductoViewModel;
-    private TipoProductoRecyclerAdapter adapter;
+  //  private TipoProductoViewModel tipoProductoViewModel;
+  //  private TipoProductoRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_producto);
-        RecyclerView categorias = findViewById(R.id.tipoProductoList);
-        categorias.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new TipoProductoRecyclerAdapter(this);
-        categorias.setAdapter(adapter);
-        tipoProductoViewModel = new ViewModelProvider(this).get(TipoProductoViewModel.class);
-        tipoProductoViewModel.obtenerCategorias();
-        observableViewModel();
+  //      RecyclerView categorias = findViewById(R.id.tipoProductoList);
+  //      categorias.setLayoutManager(new LinearLayoutManager(this));
+  //      adapter = new TipoProductoRecyclerAdapter(this);
+  //      categorias.setAdapter(adapter);
+  //      tipoProductoViewModel = new ViewModelProvider(this).get(TipoProductoViewModel.class);
+  //      tipoProductoViewModel.obtenerCategorias();
+  //      observableViewModel();
         getSupportActionBar().setTitle("Tipo Producto");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }
 
-    private void observableViewModel() {
+  /*  private void observableViewModel() {
         tipoProductoViewModel.getCategorias().observe(this, categorias -> {
             if (categorias != null) {
                 adapter.updateItems(categorias);
@@ -55,7 +55,7 @@ public class TipoProductoActivity extends AppCompatActivity implements TipoProdu
         Intent intent = new Intent(TipoProductoActivity.this, ProductoActivity.class);
         startActivity(intent);
     }
-
+*/
 }
 
 

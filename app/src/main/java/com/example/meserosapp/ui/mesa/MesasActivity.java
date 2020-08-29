@@ -6,7 +6,10 @@ import android.widget.Toast;
 
 import com.example.meserosapp.R;
 import com.example.meserosapp.data.modelo.Mesa;
+import com.example.meserosapp.data.modelo.TipoProducto;
 import com.example.meserosapp.ui.pedido.PedidoActivity;
+import com.example.meserosapp.ui.producto.ProductoActivity;
+import com.example.meserosapp.ui.tipoproducto.TipoProductoActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -50,7 +53,7 @@ public class MesasActivity extends AppCompatActivity implements MesaRecyclerAdap
 
     @Override
     public void onItemClick(Mesa mesa, int position) {
-        Intent intent = new Intent(MesasActivity.this, PedidoActivity.class);
+        Intent intent = new Intent(MesasActivity.this, ProductoActivity .class);
         startActivity(intent);
     }
 }

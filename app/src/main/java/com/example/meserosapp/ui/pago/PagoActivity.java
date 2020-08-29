@@ -1,5 +1,6 @@
 package com.example.meserosapp.ui.pago;
 
+import android.app.Dialog;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -7,8 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meserosapp.R;
@@ -17,13 +21,18 @@ import com.example.meserosapp.ui.MenuActivity;
 
 public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapter.OnItemClickListener  {
 
+   // private Button refrescar;
     private PagoViewModel pagoViewModel;
     private PagoRecyclerAdapter adapter;
+    private Dialog customDialog;
+    private TextView detalleTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pago);
+     //   detalleTxt= findViewById(R.id.detalleId);
+      //  refrescar = findViewById(R.id.refrescarId);
         RecyclerView pedidos = findViewById(R.id.pagoList);
         pedidos.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PagoRecyclerAdapter(this);
@@ -33,6 +42,29 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
         observableViewModel();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Pago ");
+
+     /*   refrescar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pagoViewModel.getPedidos().observe(PagoActivity.this, pedidos -> {
+                    if (pedidos != null) {
+                        adapter.updateItems(pedidos);
+                    }
+                });
+
+                pagoViewModel.getError().observe(PagoActivity.this, error -> {
+                    if (error != null) {
+                        Toast.makeText(PagoActivity.this, error.getMensaje(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+
+
+*/
+
+
     }
 
     private void observableViewModel() {
@@ -52,9 +84,11 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
     @Override
     public void onItemClick(Pedido pedido, int position) {
-        Intent intent = new Intent(PagoActivity.this, MenuActivity.class);
-        startActivity(intent);
+
+        openDialog();
     }
+
+
 
 
     public void btnEntregarPedidoClick(View view){
@@ -66,15 +100,40 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
     }
 
+    public void btnRefrescarPedidoClick(View view){
+
+     observableViewModel();
+
+    }
+
+
+
+
+    public void openDialog() {
+        DialogPagoActivity dialogPago = new DialogPagoActivity();
+        dialogPago.show(getSupportFragmentManager(), "Pago");
+    }
+
 }
 
 
 
 
+     /*   customDialog = new Dialog(PagoActivity.this);
+        customDialog.setContentView(R.layout.activity_dialog_pago);
+        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        getView(String.valueOf(pedido.getId()));
+
+        customDialog.show();*/
 
 
 
 
+   /* private void getView(String message){
+        detalleTxt = customDialog.findViewById(R.id.detalleId);
+        detalleTxt.setText(message);
+    }*/
 
 
 

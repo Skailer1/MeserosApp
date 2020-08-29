@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.example.meserosapp.R;
 import com.example.meserosapp.ui.MenuActivity;
+import com.example.meserosapp.ui.producto.ProductoActivity;
 import com.example.meserosapp.ui.usuario.UsuarioActivity;
 
 import java.util.Objects;
@@ -35,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private void observableViewModel() {
         loginViewModel.getAuthToken().observe(this, authToken -> {
             if (authToken != null) {
-                Intent intent1 = new Intent(LoginActivity.this, UsuarioActivity.class);
+                Intent intent1 = new Intent(LoginActivity.this, MenuActivity.class);
                 startActivity(intent1);
                 finish();
 

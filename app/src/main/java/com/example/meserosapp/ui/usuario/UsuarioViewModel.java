@@ -57,6 +57,7 @@ public class UsuarioViewModel extends ViewModel
                                 if (usuario != null) {
 
                                     _usuario.setValue(usuario1);
+                                    singleton.setUsuarioId(usuario.getId());
 
                                 }
                             }
@@ -68,6 +69,7 @@ public class UsuarioViewModel extends ViewModel
                             }
                         })
         );
+        //singleton.setUsuarioId(usuario.getId());
     }
 
     @Override

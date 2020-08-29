@@ -3,7 +3,7 @@ package com.example.meserosapp.data.modelo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
+import java.util.List;
 
 public class Pedido
 {
@@ -22,25 +22,42 @@ public class Pedido
     @SerializedName("fechaActualizacion")
     @Expose
     private String fechaActualizacion;
-    @SerializedName("empleadoId")
-    @Expose
-    private Empleado empleadoId;
     @SerializedName("mesaId")
     @Expose
     private Mesa mesaId;
-    @SerializedName("estadoId")
+    @SerializedName("usuarioId")
+    @Expose
+    private Usuario usuarioId;
+  /*  @SerializedName("estadoId")
     @Expose
     private EstadoPedido estadoId;
+    @SerializedName("detalles")
+    @Expose
+    private List <DetallePedido> detalles;*/
 
-    public Pedido(Long id, String fechaPedido, boolean isActivo, String fechaCreacion, String fechaActualizacion, Empleado empleadoId, Mesa mesaId, EstadoPedido estadoId) {
+    public Pedido(Long id, String fechaPedido, boolean isActivo, String fechaCreacion, String fechaActualizacion, Mesa mesaId, Usuario usuarioId) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.isActivo = isActivo;
         this.fechaCreacion = fechaCreacion;
         this.fechaActualizacion = fechaActualizacion;
-        this.empleadoId = empleadoId;
         this.mesaId = mesaId;
-        this.estadoId = estadoId;
+        this.usuarioId = usuarioId;
+    }
+
+    public Pedido() {
+
+    }
+
+    public Pedido(Mesa mesaId, Usuario usuarioId) {
+        this.mesaId = mesaId;
+        this.usuarioId = usuarioId;
+
+  //      this.detalles = detalles;
+    }
+
+    public Pedido(Long id) {
+        this.id = id;
     }
 
     public boolean isActivo() {
@@ -75,13 +92,6 @@ public class Pedido
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public Empleado getEmpleadoId() {
-        return empleadoId;
-    }
-
-    public void setEmpleadoId(Empleado empleadoId) {
-        this.empleadoId = empleadoId;
-    }
 
     public Mesa getMesaId() {
         return mesaId;
@@ -91,23 +101,29 @@ public class Pedido
         this.mesaId = mesaId;
     }
 
-    public EstadoPedido getEstadoId() {
-        return estadoId;
-    }
 
-    public void setEstadoId(EstadoPedido estadoId) {
-        this.estadoId = estadoId;
-    }
 
     public Long getId() {
         return id;
+    }
+
+    public Usuario getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Usuario usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
+  /*  public List<DetallePedido> getDetalles() {
+        return detalles;
+    }
 
-
-
+    public void setDetalles(List<DetallePedido> detalles) {
+        this.detalles = detalles;
+    }*/
 }

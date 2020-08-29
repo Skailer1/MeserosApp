@@ -1,4 +1,4 @@
-package com.example.meserosapp.ui.tipoproducto;
+package com.example.meserosapp.ui.producto;
 
 import android.view.LayoutInflater;
 import android.view.View;

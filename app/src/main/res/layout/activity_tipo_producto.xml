@@ -24,18 +24,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tipoProductoList"
-        android:layout_width="395dp"
-        android:layout_height="672dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoriaId" />
+        app:layout_constraintTop_toBottomOf="@+id/categoriaId">
 
+        <RadioButton
+            android:id="@+id/radioBtnComidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alike"
+            android:text="Comidas"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtnBebidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alike"
+            android:text="Bebidas"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtnCafeteria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alike"
+            android:text="Cafeteria"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtnDesayuno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alike"
+            android:text="Desayunos"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

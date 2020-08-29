@@ -17,10 +17,12 @@ import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface WikiApiService {
 
@@ -46,22 +48,33 @@ public interface WikiApiService {
     Single<List<TipoDocumento>> obtenerDocumentos(@Header("Authorization") String authorization);
 
     @POST("v1/empleado")
-    Single<AuthToken> empleado(@Body Empleado empleado );
+    Single<Empleado> crearEmpleado(@Body Empleado empleado, @Header("Authorization") String authorization );
 
     @POST("v1/usuario")
     Single<Usuario> crearUsuario(@Body Usuario usuario, @Header("Authorization") String authorization);
 
     @POST("v1/pedido")
-    Single<AuthToken> pedido(@Body Pedido pedido);
+    Single<Pedido> crearPedido(@Body Pedido pedido, @Header("Authorization") String authorization);
 
-    @GET("v1/detalle/{id}")
-    Single<DetallePedido> obtenerDetalle(@Header("Authorization") String authorization);
+    @GET("pedido/detalle/{pedidoIdP}")
+    Single<DetallePedido> obtenerDetalle(@Path("pedidoIdP") Long id, @Header("Authorization") String authorization);
+
+    @GET("v1/estado/{id}")
+    Single<EstadoPedido> obtenerEstado(@Path("id") Long id, @Header("Authorization") String authorization);
+
+    @GET("v1/pedido/{id}")
+    Single<Pedido> obtenerPedido(@Path("id") Long id, @Header("Authorization") String authorization);
 
     @POST("v1/detalle")
-    Single<AuthToken> detallePedido(@Body DetallePedido detalle);
+    Single<DetallePedido> detallePedido(@Body DetallePedido detalle);
 
-    @PUT("v1/estado")
-    Single<AuthToken> estado(@Body EstadoPedido estado);
+    @GET("v1/producto/tipo/{tipoProductoId}")
+    Single<List<Producto>> obtenerProductosPorTipo(@Path("tipoProductoId") Long tipoProductoId, @Header("Authorization") String authorization);
 
+    @PUT("v1/estado/{id}")
+    Single<EstadoPedido> actualizarEstado(@Path("id") Long id , @Body EstadoPedido estado,@Header("Authorization") String authorization );
+
+    @DELETE("v1/pedido/{id}")
+    Single <Pedido> eliminarPedido(@Path("id") Long id, @Header("Authorization") String authorization);
 
 }

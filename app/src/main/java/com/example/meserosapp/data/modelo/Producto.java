@@ -46,8 +46,13 @@ public class Producto {
         this.activo = activo;
     }
 
+    public Producto() {
+    }
+
     @SerializedName("activo")
     @Expose
+
+
 
 
 

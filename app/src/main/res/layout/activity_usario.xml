@@ -51,14 +51,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:fontFamily="@font/alike"
-        android:hint="Digite Correo De Usuario"
+        android:hint="Digite contraseña De Usuario"
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" />
 
     <EditText
         android:id="@+id/txtContrasenia"
@@ -69,36 +69,30 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:fontFamily="@font/alike"
-        android:hint="Digite Contraseña De Usuario"
+        android:hint="Digite correo De Usuario"
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <Button
-        android:id="@+id/btnTipoEmpleado"
+        android:id="@+id/btnRegistrarUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorButton"
         android:fontFamily="@font/alike"
         android:onClick="btnTipoEmpleadoClick"
-        android:text="SIGUIENTE"
+        android:text="REGISTRAR USUARIO"
         android:textColor="@color/colorAccent"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" /><![CDATA[
-
-
-    app:layout_constraintTop_toTopOf="parent" />
-
-
-]]>
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,7 +39,6 @@
         app:layout_constraintTop_toBottomOf="@+id/pedidosPagoId" />
 
 
-
     <Button
         android:id="@+id/refrescarId"
         android:layout_width="wrap_content"
@@ -48,6 +47,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:background="@color/colorButton"
+        android:onClick="btnRefrescarPedidoClick"
         android:text="Actualizar"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +64,7 @@
         android:layout_marginBottom="16dp"
         android:background="@color/colorButton"
         android:onClick="btnEntregarPedidoClick"
-        android:text="Entregar"
+        android:text="Terminar"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

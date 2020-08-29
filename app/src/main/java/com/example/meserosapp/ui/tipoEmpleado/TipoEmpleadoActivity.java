@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.meserosapp.R;
@@ -15,11 +16,13 @@ import com.example.meserosapp.ui.registro.RegistroActivity;
 public class TipoEmpleadoActivity extends AppCompatActivity {
 
     private TipoEmpleadoViewModel tipoEmpleadoViewModel;
+    private Spinner tipoEmpleadoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_empleado);
+        tipoEmpleadoList =  findViewById(R.id.spinnerEmpleado);
         tipoEmpleadoViewModel = new ViewModelProvider(this).get(TipoEmpleadoViewModel.class);
         tipoEmpleadoViewModel.obtenerRoles();
         observableViewModel();

@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/productoId"
-        android:layout_width="256dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="223dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/alike_angular"
         android:text="Seleccione Productos"
@@ -19,14 +19,14 @@
         android:textSize="30sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/btnEliminarProducto"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productosList"
-        android:layout_width="395dp"
-        android:layout_height="667dp"
+        android:layout_width="392dp"
+        android:layout_height="597dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
@@ -64,4 +64,31 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAgregarProducto" />
+
+    <Button
+        android:id="@+id/btnFiltrar"
+        android:layout_width="64dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/filtro"
+        android:onClick="btnFiltrarClick"
+        app:layout_constraintEnd_toStartOf="@+id/btnAgregarProducto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/viewCategory"
+        android:layout_width="107dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/alike"
+        android:text="Filtrar Categorias"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/productosList"
+        app:layout_constraintEnd_toStartOf="@+id/btnEliminarProducto"
+        app:layout_constraintTop_toBottomOf="@+id/btnFiltrar"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

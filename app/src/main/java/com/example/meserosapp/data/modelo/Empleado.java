@@ -3,12 +3,16 @@ package com.example.meserosapp.data.modelo;
 import com.example.meserosapp.data.enums.RH;
 import com.example.meserosapp.data.enums.Sexo;
 
+import com.example.meserosapp.data.enums.TipoDocumentoEnum;
+import com.example.meserosapp.data.enums.TipoEmpleadoEnum;
+import com.example.meserosapp.data.singleton.Singleton;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.security.acl.LastOwnerException;
 
 public class Empleado {
+
 
     @SerializedName("id")
     @Expose
@@ -18,53 +22,70 @@ public class Empleado {
     private String nombre;
     @SerializedName("telefono")
     @Expose
-    private Integer telefono;
+    private Long telefono;
+    @SerializedName("rh")
+    @Expose
+    private String rh;
+    @SerializedName("sexo")
+    @Expose
+    private String sexo;
+    @SerializedName("tipoDocumento")
+    @Expose
+    private String tipoDocumento;
+    @SerializedName("tipoEmpleado")
+    @Expose
+    private String tipoEmpleado;
+    @SerializedName("numeroDocumento")
+    @Expose
+    private Long numeroDocumento;
     @SerializedName("direccion")
     @Expose
     private String direccion;
+    @SerializedName("activo")
+    @Expose
+    private Boolean activo;
     @SerializedName("fechaCreacion")
     @Expose
     private String fechaCreacion;
     @SerializedName("fechaActualizacion")
     @Expose
     private String fechaActualizacion;
-    @SerializedName("rh")
-    @Expose
-    private RH rh;
-    @SerializedName("numeroDocumento")
-    @Expose
-    private Integer numeroDocumento;
-    @SerializedName("sexo")
-    @Expose
-    private Sexo sexo;
-    @SerializedName("tipoDocumento")
-    @Expose
-    private TipoDocumento tipoDocumento;
     @SerializedName("usuarioId")
     @Expose
     private Usuario usuarioId;
-    @SerializedName("tipoEmpleado")
-    @Expose
-    private TipoEmpleado tipoEmpleado;
-    @SerializedName("activo")
-    @Expose
-    private Boolean activo;
 
-    public Empleado(Long id, String nombre, Integer telefono,  String direccion, String fechaCreacion, String fechaActualizacion, RH rh, Integer numeroDocumento, Sexo sexo, TipoDocumento tipoDocumento, Usuario usuarioId, TipoEmpleado tipoEmpleado, Boolean activo) {
+   /* @SerializedName("usuarioId")
+    @Expose
+    private Long usuarioI;*/
+
+    public Empleado( Long id, String nombre, Long telefono, String rh, String sexo, String tipoDocumento, String tipoEmpleado, Long numeroDocumento, String direccion, Boolean activo, String fechaCreacion, String fechaActualizacion, Usuario usuarioId) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.direccion = direccion;
-        this.fechaCreacion = fechaCreacion;
-        this.fechaActualizacion = fechaActualizacion;
         this.rh = rh;
-        this.numeroDocumento = numeroDocumento;
         this.sexo = sexo;
         this.tipoDocumento = tipoDocumento;
-        this.usuarioId = usuarioId;
         this.tipoEmpleado = tipoEmpleado;
+        this.numeroDocumento = numeroDocumento;
+        this.direccion = direccion;
         this.activo = activo;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaActualizacion = fechaActualizacion;
+        this.usuarioId = usuarioId;
     }
+
+    public Empleado(String nombre, Long telefono, String rh, String sexo, String tipoDocumento, String tipoEmpleado, Long numeroDocumento, String direccion) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.rh = rh;
+        this.sexo = sexo;
+        this.tipoDocumento = tipoDocumento;
+        this.tipoEmpleado = tipoEmpleado;
+        this.numeroDocumento = numeroDocumento;
+        this.direccion = direccion;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -82,11 +103,11 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public Integer getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
@@ -115,35 +136,35 @@ public class Empleado {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public RH getRh() {
+    public String getRh() {
         return rh;
     }
 
-    public void setRh(RH rh) {
+    public void setRh(String rh) {
         this.rh = rh;
     }
 
-    public Integer getNumeroDocumento() {
+    public Long getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(Integer numeroDocumento) {
+    public void setNumeroDocumento(Long numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
-    public Sexo getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(Sexo sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public TipoDocumento getTipoDocumento() {
+    public String getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+    public void setTipoDocumento(String tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
 
@@ -155,11 +176,11 @@ public class Empleado {
         this.usuarioId = usuarioId;
     }
 
-    public TipoEmpleado getTipoEmpleado() {
+    public String getTipoEmpleado() {
         return tipoEmpleado;
     }
 
-    public void setTipoEmpleado(TipoEmpleado tipoEmpleado) {
+    public void setTipoEmpleado(String tipoEmpleado) {
         this.tipoEmpleado = tipoEmpleado;
     }
 
@@ -171,4 +192,11 @@ public class Empleado {
         this.activo = activo;
     }
 
+   /* public Long getUsuarioI() {
+        return usuarioI;
+    }
+
+    public void setUsuarioI(Long usuarioI) {
+        this.usuarioI = usuarioI;
+    }*/
 }
