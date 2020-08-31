@@ -26,7 +26,7 @@ public class Http extends AsyncTask <Void,Void,String>  {
 
     public Http(String route, String token, JSONObject jsonObject, Integer peticion) {
         this.routes = new Routes();
-        this.host = "https://sgp-unibague.herokuapp.com/";
+        this.host = "http://sgp-unibague.herokuapp.com:80/";
         this.useRoute = route;
         this.token = token;
         this.jsonObject = jsonObject;
@@ -74,9 +74,8 @@ public class Http extends AsyncTask <Void,Void,String>  {
             OutputStreamWriter wr = new OutputStreamWriter(httpURLConnection.getOutputStream());
             wr.write(this.jsonObject.toString());
             wr.flush();
-            wr.close(
-            );
-            try {
+            wr.close();
+            try{
                 BufferedReader br = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuilder sb = new StringBuilder();
                 String line;
@@ -85,17 +84,19 @@ public class Http extends AsyncTask <Void,Void,String>  {
                 }
                 br.close();
                 return sb.toString();
-
             }catch (Exception e){
-
+                System.out.println(e);
                 return "500";
-
             }
-
-        } catch (Exception e){
-
+        }catch (Exception e){
+            System.out.println(e);
             return "404";
-
         }
+
     }
+    @Override
+    protected void onPostExecute(String s) {
+
+    }
+
 }
