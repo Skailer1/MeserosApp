@@ -1,9 +1,11 @@
 package com.example.meserosapp.ui.usuario;
 
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,6 +22,8 @@ public class UsuarioActivity extends AppCompatActivity  {
     private EditText txtNombre;
     private EditText txtCorreo;
     private EditText txtContrasenia;
+    private SharedPreferences configShared;
+    private SharedPreferences.Editor editorConfig;
     private Singleton singleton;
     private UsuarioViewModel usuarioViewModel;
 
@@ -31,6 +35,8 @@ public class UsuarioActivity extends AppCompatActivity  {
         txtNombre =  findViewById(R.id.txtNombre);
         txtCorreo = findViewById(R.id.txtCorreo);
         txtContrasenia =  findViewById(R.id.txtContrasenia);
+        configShared = getSharedPreferences("configShared", Context.MODE_PRIVATE);
+        editorConfig = configShared.edit();
         singleton = Singleton.obtenerInstancia();
         getSupportActionBar().setTitle("Usuario");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,11 +49,13 @@ public class UsuarioActivity extends AppCompatActivity  {
         usuarioViewModel.getUsuario().observe(this, usuario -> {
             if (usuario != null) {
                 Toast.makeText(this, "Se ha creado un nuevo usuario", Toast.LENGTH_SHORT).show();
-              // singleton.setUsuarioId(usuario.getId());
+               // singleton.setUsuarioId(usuario.getId());
                 Intent intent  = new Intent (UsuarioActivity.this, RegistroActivity.class  );
-                Bundle usuarioId = new Bundle();
+               /* Bundle usuarioId = new Bundle();
                 usuarioId.putLong("id", usuario.getId());
-                intent.putExtras(usuarioId);
+                intent.putExtras(usuarioId);*/
+                editorConfig.putString("usuarioId",usuario.getId().toString());
+                editorConfig.commit();
                 startActivity(intent);
        //         singleton.setUsuarioId(usuario.getId());
                 finish();

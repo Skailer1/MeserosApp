@@ -1,6 +1,8 @@
 package com.example.meserosapp.ui.mesa;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -20,11 +22,15 @@ public class MesasActivity extends AppCompatActivity implements MesaRecyclerAdap
 
     private MesaViewModel mesaViewModel;
     private MesaRecyclerAdapter adapter;
+    private SharedPreferences configShared;
+    private SharedPreferences.Editor editorConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesas);
+        configShared = getSharedPreferences("configShared", Context.MODE_PRIVATE);
+        editorConfig = configShared.edit();
         RecyclerView mesas = findViewById(R.id.tableList);
         mesas.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MesaRecyclerAdapter(this);
@@ -54,6 +60,8 @@ public class MesasActivity extends AppCompatActivity implements MesaRecyclerAdap
     @Override
     public void onItemClick(Mesa mesa, int position) {
         Intent intent = new Intent(MesasActivity.this, ProductoActivity .class);
+        editorConfig.putString("mesaId",mesa.getId().toString());
+        editorConfig.commit();
         startActivity(intent);
     }
 }

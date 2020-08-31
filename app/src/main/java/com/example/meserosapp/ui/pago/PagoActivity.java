@@ -102,7 +102,8 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
     public void btnRefrescarPedidoClick(View view){
 
-     observableViewModel();
+        finish();
+        startActivity(getIntent());
 
     }
 

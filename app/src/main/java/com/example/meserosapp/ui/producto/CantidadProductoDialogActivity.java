@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,10 +14,20 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.meserosapp.R;
+import com.example.meserosapp.data.modelo.Producto;
 
 public class CantidadProductoDialogActivity extends AppCompatDialogFragment {
 
     private EditText cantidadProducto;
+    private CantidadProductoDialogListener listener;
+    private ProductoActivity activity;
+
+    public CantidadProductoDialogActivity(ProductoActivity productoActivity) {
+        this.activity = productoActivity;
+
+
+    }
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -36,6 +47,9 @@ public class CantidadProductoDialogActivity extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         int cantidad = Integer.parseInt(cantidadProducto.getText().toString());
+                        activity.setCantidad(cantidad);
+                        activity.almacenarJson();
+                     //   listener.applyTexts(cantidad);
 
 
                     }
@@ -44,6 +58,26 @@ public class CantidadProductoDialogActivity extends AppCompatDialogFragment {
         cantidadProducto = view.findViewById(R.id.cantidad);
         return builder.create();
     }
+
+   /* @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            listener = (CantidadProductoDialogListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() +
+                    "debe implementar listener");
+        }
+    }
+
+    */
+
+
+    public interface CantidadProductoDialogListener {
+
+    //  void applyTexts(int cantidad);
+    }
+
 
 
 }

@@ -17,24 +17,18 @@ import android.widget.Toast;
 import com.example.meserosapp.R;
 import com.example.meserosapp.data.modelo.TipoProducto;
 
-public class DialogCategoryActivity extends AppCompatDialogFragment implements TipoProductoRecyclerAdapter.OnItemClickListener {
+public class DialogCategoryActivity extends AppCompatDialogFragment{
 
  //   RadioGroup radioGroup;
-    private TipoProductoViewModel tipoProductoViewModel;
-    private TipoProductoRecyclerAdapter adapter;
+ //   private TipoProductoViewModel tipoProductoViewModel;
+ //   private TipoProductoRecyclerAdapter adapter;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.activity_dialog_category, null);
-        RecyclerView categorias =  view.findViewById(R.id.tipoProductoList);
-        categorias.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new TipoProductoRecyclerAdapter(this);
-        categorias.setAdapter(adapter);
-        tipoProductoViewModel = new ViewModelProvider(this).get(TipoProductoViewModel.class);
-        tipoProductoViewModel.obtenerCategorias();
-        observableViewModel();
+
     //    radioGroup = findViewById(R.id.radioGroupCategorias);
   //      setOnchangeRadioGroupListener();
         builder.setView(view)
@@ -55,25 +49,7 @@ public class DialogCategoryActivity extends AppCompatDialogFragment implements T
 
         return builder.create();
     }
-    private void observableViewModel() {
-        tipoProductoViewModel.getCategorias().observe(this, categorias -> {
-            if (categorias != null) {
-                adapter.updateItems(categorias);
-            }
-        });
 
-        tipoProductoViewModel.getError().observe(this, error -> {
-            if (error != null) {
-                Toast.makeText(getContext(), error.getMensaje(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    @Override
-    public void onItemClick(TipoProducto tipoProducto, int position) {
-
-    }
 
  /*   private void setOnchangeRadioGroupListener() {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -96,3 +72,51 @@ public class DialogCategoryActivity extends AppCompatDialogFragment implements T
 */
 
 }
+
+
+
+
+
+
+
+
+
+    /*    RecyclerView categorias =  view.findViewById(R.id.tipoProductoList);
+        categorias.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new TipoProductoRecyclerAdapter(this);
+        categorias.setAdapter(adapter);
+        tipoProductoViewModel = new ViewModelProvider(this).get(TipoProductoViewModel.class);
+        tipoProductoViewModel.obtenerCategorias();
+        observableViewModel();*/
+
+/*private void observableViewModel() {
+        tipoProductoViewModel.getCategorias().observe(this, categorias -> {
+            if (categorias != null) {
+                adapter.updateItems(categorias);
+            }
+        });
+
+        tipoProductoViewModel.getError().observe(this, error -> {
+            if (error != null) {
+                Toast.makeText(getContext(), error.getMensaje(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    @Override
+    public void mostrarTodos(List<Reserva> reservas) {
+        List<String> resultado = new ArrayList<>();
+        for (Reserva reserva : reservas) {
+            String toString = "Cedula " + reserva.getCedula() + "\n"
+                    + "Nombre: " + reserva.getNombre();
+            resultado.add(toString);
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, resultado);
+        listaReservas.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(TipoProducto tipoProducto, int position) {
+
+    }*/

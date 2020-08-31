@@ -1,5 +1,6 @@
 package com.example.meserosapp.ui.pedido;
 
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,13 +50,19 @@ public class PedidoActivity extends AppCompatActivity implements PedidoRecyclerA
 
     private PedidoRecyclerAdapter adapter;
     private PedidoViewModel pedidoViewModel;
+    private SharedPreferences configShared;
+    private SharedPreferences.Editor editorConfig;
+    private ArrayList<String> detallePedidos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
         notificacion = findViewById(R.id.btnFinalizarPedido);
+        detallePedidos =  new ArrayList<String>();
         RecyclerView detalle = findViewById(R.id.detalleList);
+        configShared = getSharedPreferences("configShared", Context.MODE_PRIVATE);
+        editorConfig = configShared.edit();
         detalle.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PedidoRecyclerAdapter(this);
         detalle.setAdapter(adapter);
@@ -62,6 +70,11 @@ public class PedidoActivity extends AppCompatActivity implements PedidoRecyclerA
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         pedidoViewModel = new ViewModelProvider(this).get(PedidoViewModel.class);
         observableViewModel();
+
+
+        configShared.getString("detalles","");
+        Toast.makeText(this, "detalles"+ configShared, Toast.LENGTH_SHORT).show();
+        System.out.println(configShared);
 
     //    ArrayList<DetallePedido> lista = (ArrayList<DetallePedido>) getIntent().getSerializableExtra("milista");
 
@@ -137,6 +150,7 @@ public class PedidoActivity extends AppCompatActivity implements PedidoRecyclerA
 
     }
 
+
     private void observableViewModel() {
         pedidoViewModel.getPedido().observe(this, pedido -> {
             if (pedido != null) {
@@ -154,6 +168,10 @@ public class PedidoActivity extends AppCompatActivity implements PedidoRecyclerA
             }
         });
     }
+    private void mostrarDetalles(){
+        detallePedidos.add("detalles del pedido"+ configShared.getString("detalles",""));
+    }
+
     public void btnAgregarPedidoClick(View view){
 
 
@@ -166,7 +184,7 @@ public class PedidoActivity extends AppCompatActivity implements PedidoRecyclerA
 
     public void btnFinalizarPedidoClick(View view){
 
-//        pedidoViewModel.crearPedido();
+    //    pedidoViewModel.crearPedido();
 
 
 
@@ -178,4 +196,6 @@ public class PedidoActivity extends AppCompatActivity implements PedidoRecyclerA
         Intent intent = new Intent(PedidoActivity.this, PedidoActivity.class);
         startActivity(intent);
     }
+
+
 }

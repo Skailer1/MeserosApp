@@ -77,6 +77,7 @@ public class ProductoRecyclerAdapter extends RecyclerView.Adapter<ProductoRecycl
 
     public interface OnItemClickListener {
         void onItemClick(Producto producto, int position);
+
     }
 
 }
