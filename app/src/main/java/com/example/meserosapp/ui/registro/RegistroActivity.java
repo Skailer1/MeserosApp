@@ -109,7 +109,7 @@ public class RegistroActivity extends AppCompatActivity  {
             empleadoNuevo.put("usuarioId",configShared.getString("usuarioId",""));
             empleadoNuevo.put("empleado",empleado);
             System.out.println(empleadoNuevo);
-            http = new Http("createEmployee",preferencesManager.getAuthToken(), empleadoNuevo,1);
+            http = new Http("createEmployee",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), empleadoNuevo,1);
             http.setId(3L);
             String response =  http.execute().get();
             System.out.println(response);

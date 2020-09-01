@@ -58,7 +58,7 @@ public class Http extends AsyncTask <Void,Void,String>  {
             HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection() ;
             httpURLConnection.setDoOutput(true);
             if (method == 1){
-            httpURLConnection.setRequestMethod("POST");}
+            httpURLConnection.setRequestMethod("POST"); }
             else if (method ==2){
             httpURLConnection.setRequestMethod("GET");}
             else if (method == 3){
@@ -74,8 +74,7 @@ public class Http extends AsyncTask <Void,Void,String>  {
             OutputStreamWriter wr = new OutputStreamWriter(httpURLConnection.getOutputStream());
             wr.write(this.jsonObject.toString());
             wr.flush();
-            wr.close(
-            );
+            wr.close();
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuilder sb = new StringBuilder();
@@ -88,14 +87,18 @@ public class Http extends AsyncTask <Void,Void,String>  {
 
             }catch (Exception e){
 
+                System.out.println(e);
+
                 return "500";
 
             }
 
         } catch (Exception e){
+            System.out.println(e);
 
             return "404";
 
         }
     }
+
 }

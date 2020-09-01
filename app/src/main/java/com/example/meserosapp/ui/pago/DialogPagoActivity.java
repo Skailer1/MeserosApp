@@ -14,10 +14,18 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.meserosapp.R;
+import com.example.meserosapp.ui.producto.CantidadProductoDialogActivity;
+import com.example.meserosapp.ui.producto.ProductoActivity;
 
 public class DialogPagoActivity extends AppCompatDialogFragment {
 
   //  private PagoViewModel pagoViewModel;
+  private DialogPagoActivity.DialogPagoListener listener;
+    private PagoActivity activity;
+
+    public DialogPagoActivity(PagoActivity pagoActivity){
+        this.activity = pagoActivity;
+    }
 
 
     @Override
@@ -43,6 +51,9 @@ public class DialogPagoActivity extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                      //   observableViewModel();
+                       activity.sendHttp();
+
+
 
                     }
                 });
@@ -50,23 +61,9 @@ public class DialogPagoActivity extends AppCompatDialogFragment {
         return builder.create();
     }
 
-  /*  private void observableViewModel() {
-        pagoViewModel.getPedidoE().observe(this, pedido -> {
-            if (pedido != null) {
+    public interface DialogPagoListener{
 
-
-
-            }
-        });
-
-        pagoViewModel.getError().observe(this, error -> {
-            if (error != null) {
-                Toast.makeText(getActivity(), error.getMensaje(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
-*/
-
 }
 
 

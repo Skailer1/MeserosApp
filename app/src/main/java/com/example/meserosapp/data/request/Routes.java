@@ -29,9 +29,9 @@ public class Routes {
     try {
         this.routes.put("addProduct","v1/pedido");
         this.routes.put("createEmployee","v1/empleado");
-        this.routes.put("deleteOrder","v1/pedido/{"+getId()+"}");
-        this.routes.put("listByOrder", "v1/pedido/detalle/{"+getId()+"}");
-        this.routes.put("listByCatgory","v1/producto/tipo/{"+getId()+"}");
+        this.routes.put("deleteOrder","v1/pedido/101");
+        this.routes.put("listByOrder", "v1/pedido/detalle/102");
+        this.routes.put("listByCatgory","v1/producto/tipo/"+getId()+"");
 
 
     } catch (Exception e){
