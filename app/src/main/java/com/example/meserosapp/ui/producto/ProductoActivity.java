@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,7 +59,7 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
         viewCategory = findViewById(R.id.viewCategory);
         productos = null;
         cantidad = 0;
-        countProduct=1;
+        countProduct = 1;
         detallePedidos = new JSONArray ();
         RecyclerView productos = findViewById(R.id.productosList);
         productos.setLayoutManager(new LinearLayoutManager(this));
@@ -71,6 +72,8 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
+
+
 
     private void observableViewModel() {
         productoViewModel.getProductos().observe(this, productos -> {
@@ -90,24 +93,29 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
 
         try {
             pedido.put("mesaId", configShared.getString("mesaId",""));
-            pedido.put("usuarioId",1);
+            pedido.put("usuarioId",/*configShared.getString("usuarioId","")*/ 64);
           //  String tempDetalle="";
             //JSONArray tempDetail = new JSONArray(detallePedidos);
             //for (int i=0; i<detallePedidos.size(); i++){
            // pedido.put("detalles",detallePedidos.get(i));
               //  tempDetalle += detallePedidos.get(i) + ",";
             //}
+            pedido.put("detalles",detallePedidos);
             for (int i =1; i<=productoDetalle.length(); i++){
                 System.out.println("Ciclo For"+productoDetalle.get("object"+i));
                 temporalObjetos.put(productoDetalle.get("object"+i));
             }
             pedido.put("detalles",temporalObjetos);
+            editorConfig.putString("detalles",temporalObjetos.toString());
+            editorConfig.commit();
           //  System.out.println("concatenacion "+ tempDetalle);
             System.out.println(pedido);
+            editorConfig.putString("pedidoTotal", String.valueOf(pedido));
+            editorConfig.commit();
             System.out.println("Token "+preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""));
-            http = new Http("addProduct",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""),pedido,1);
-            String response =  http.execute().get();
-            System.out.println(response);
+            //http = new Http("addProduct",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""),pedido,1);
+            //String response =  http.execute().get();
+            //System.out.println(response);
         }catch (Exception e){
 
         }
@@ -118,9 +126,12 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
 
         try {
             JSONObject detalles = new JSONObject();
+
+           // productoDetalle.put("producto", productos.getId());
             JSONObject productoCompleto = new JSONObject();
             //productoDetalle.put("producto", productos.getId());
             productoCompleto.put("producto", productos.getId());
+            productoCompleto.put("nombre", productos.getNombreProducto());
           //  productoDetalle.put("nombre", productos.getNombreProducto());
             detalles.put("cantidad",getCantidad());
             detalles.put("valorUnitario", productos.getCosto());
@@ -131,25 +142,22 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
             productoDetalle.put("object"+countProduct, productoCompleto);
             System.out.println("Put productoDetalle"+productoDetalle);
             countProduct++;
-
           //  detallePedidos.put(productoDetalle);
-            //temporalObjetos.put(productoDetalle);
-            //productoDetalle.put("detalles",temporalObjetos);
-            //System.out.println(productoDetalle);
-            //contenedorDetalle.add(temporalObjetos);
-            //System.out.println("lista" + contenedorDetalle);
-            //detallePedidos = new JSONArray(temporalObjetos);
-            //System.out.println(productoDetalle);
+//            contenedorDetalle.add(productoDetalle);
+  //          System.out.println("lista" + contenedorDetalle);
+    //        detallePedidos = new JSONArray(contenedorDetalle);
+            System.out.println();
        //     detallePedidos.add("{'producto':"+productos.getId()+",'detalle':"+productoDetalle.getString("detalle")+"}");
 /*            productoDetalle.put("detalle", "{'cantidad':"+getCantidad()
                     +",'costo':"+productos.getCosto()+"}");
 
-*/          //System.out.println(pedido);
+*/       //   System.out.println(pedido);
             //System.out.println(detallePedidos);
 
             //detallePedido.put("product",producto.getId() + producto.getCosto() + producto.getCosto());
         } catch (Exception e){
             System.out.println(e);
+
         }
     }
 
@@ -185,8 +193,7 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
 
     public void btnAgregarProductoClick(View view){
         Intent intent1  = new Intent (ProductoActivity.this, PedidoActivity.class  );
-        editorConfig.putString("detalles",detallePedidos.toString());
-        editorConfig.commit();
+
         startActivity(intent1);
 
         sendHttp();
