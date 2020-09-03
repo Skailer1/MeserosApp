@@ -20,12 +20,12 @@ public class Http extends AsyncTask <Void,Void,String>  {
     private String token;
     private JSONObject jsonObject;
     private Integer method;
-    private Long id;
+    private String id;
 
 
 
-    public Http(String route, String token, JSONObject jsonObject, Integer peticion) {
-        this.routes = new Routes();
+    public Http(String route, String token, JSONObject jsonObject, Integer peticion, String id) {
+        this.routes = new Routes(id);
         this.host = "https://sgp-unibague.herokuapp.com/";
         this.useRoute = route;
         this.token = token;
@@ -36,11 +36,11 @@ public class Http extends AsyncTask <Void,Void,String>  {
 
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -50,9 +50,6 @@ public class Http extends AsyncTask <Void,Void,String>  {
 
 
             JSONObject tempRoute = routes.getRoutes();
-            if(getId()!= null){
-                this.routes.setId(getId());
-            }
             String urlServer = host +  tempRoute.getString(this.useRoute);
             URL url = new URL (urlServer);
             HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection() ;

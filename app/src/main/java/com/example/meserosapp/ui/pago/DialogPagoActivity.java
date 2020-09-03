@@ -1,16 +1,20 @@
 package com.example.meserosapp.ui.pago;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meserosapp.R;
@@ -19,7 +23,10 @@ import com.example.meserosapp.ui.producto.ProductoActivity;
 
 public class DialogPagoActivity extends AppCompatDialogFragment {
 
+    private SharedPreferences configShared;
+    private SharedPreferences.Editor editorConfig;
   //  private PagoViewModel pagoViewModel;
+    private TextView detallePintar;
   private DialogPagoActivity.DialogPagoListener listener;
     private PagoActivity activity;
 
@@ -51,13 +58,19 @@ public class DialogPagoActivity extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                      //   observableViewModel();
+                     //  String detallesPintados = detallePintar.setText();
+
                        activity.sendHttp();
+
 
 
 
                     }
                 });
 
+    //    configShared = getSharedPreferences("configShared", Context.MODE_PRIVATE);
+    //    editorConfig = configShared.edit();
+        detallePintar = view.findViewById(R.id.detalleTxt);
         return builder.create();
     }
 

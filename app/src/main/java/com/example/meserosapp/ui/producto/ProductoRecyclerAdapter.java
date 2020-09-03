@@ -20,6 +20,7 @@ public class ProductoRecyclerAdapter extends RecyclerView.Adapter<ProductoRecycl
 {
     private List<Producto> productos = new ArrayList<>();
     private final OnItemClickListener onItemClickListener;
+    private ArrayList<Producto> productoArrayList;
 
     ProductoRecyclerAdapter(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -49,6 +50,11 @@ public class ProductoRecyclerAdapter extends RecyclerView.Adapter<ProductoRecycl
     void updateItems(List<Producto> productos) {
         this.productos.clear();
         this.productos.addAll(productos);
+        notifyDataSetChanged();
+    }
+
+    public void filterList(ArrayList<Producto> filteredList) {
+        productos = filteredList;
         notifyDataSetChanged();
     }
 

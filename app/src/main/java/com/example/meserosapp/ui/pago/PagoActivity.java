@@ -14,6 +14,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.example.meserosapp.data.modelo.Pedido;
 import com.example.meserosapp.data.preferences.SharedPreferencesManager;
 import com.example.meserosapp.data.request.Http;
 import com.example.meserosapp.ui.MenuActivity;
+import com.example.meserosapp.ui.pedido.PedidoActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,6 +42,7 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
     private JSONObject eliminar = new JSONObject();
     private JSONObject listarPorId = new JSONObject();
     private JSONArray listaDetalles = new JSONArray();
+    private JSONArray tempPedido = new JSONArray();
     private SharedPreferencesManager preferencesManager = MesappApplication.obtenerSharedPreferencesManager();
 
     @Override
@@ -103,12 +106,13 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
 
         try {
-            listarPorId.put("detalles",listaDetalles);
-            http = new Http("listByOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), listarPorId,2);
+
+            http = new Http("listByOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), listarPorId,1,"103");
             //   http.setId(Long.parseLong(configShared.getString("id","")));
             //   http.setId(99L);
 
             String response =  http.execute().get();
+            almacenarJSON(response);
             System.out.println(response);
 
         }catch (Exception e){
@@ -118,15 +122,33 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
     }
 
 
-    public void almacenarJSON (){
+    public void almacenarJSON (String pintar){
+
+
 
 
         try {
 
-           // JSONArray listaDetalles = new JSONArray();
+            listaDetalles = new JSONArray(pintar);
+
+
 
             for (int i = 0; i<listaDetalles.length(); i++){
-                JSONObject detalle = listaDetalles.getJSONObject(i);
+                JSONObject productoTemp = new JSONObject();
+               // System.out.println(listaDetalles.get(i));
+                JSONObject detalle = (JSONObject) listaDetalles.get(i);
+
+                JSONObject producto = new JSONObject(detalle.getString("producto"));
+                productoTemp.put("nombre",producto.getString("nombreProducto") );
+                productoTemp.put("cantidad", producto.getString("cantidad"));
+                productoTemp.put("valor", producto.getString("valorUnitario"));
+                productoTemp.put("total",producto.getString("total"));
+                tempPedido.put(productoTemp);
+
+                System.out.println(producto.getString("nombreProducto"));
+                System.out.println(detalle.getString("cantidad"));
+                System.out.println(detalle.getString("valorUnitario"));
+                System.out.println(detalle.getString("total"));
 
 
                 detalle.put("nombreProducto","");
@@ -139,6 +161,9 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
             }
 
+            editorConfig.putString("todo", tempPedido.toString());
+            editorConfig.commit();
+            openDialog();
 
 
 
@@ -150,16 +175,77 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
     }
 
 
+   /* private void setView (){
+        try{
+            LinearLayout totalPago = new LinearLayout(PedidoActivity.this);
+            totalPago.setOrientation(LinearLayout.HORIZONTAL);
+            TextView totalNeto = new TextView(PedidoActivity.this);
+            totalNeto.setText("Total: ");
+            TextView totalNeto2 = new TextView(PedidoActivity.this);
+            for (int i = 0; i<contenedor.length(); i++) {
+                try {
+                    JSONObject object = new JSONObject(contenedor.getString(i));
+                    JSONObject detalle = new JSONObject(object.getString("detalle"));
+
+                    System.out.println("recibidos" + contenedor.getString(i));
+
+                    LinearLayout producto = new LinearLayout(PedidoActivity.this);
+                    producto.setOrientation(LinearLayout.HORIZONTAL);
+                    LinearLayout productoCantidad = new LinearLayout(PedidoActivity.this);
+                    productoCantidad.setOrientation(LinearLayout.HORIZONTAL);
+
+
+                    TextView name= new TextView(PedidoActivity.this);
+                    TextView textCantidad = new TextView(PedidoActivity.this);
+                    textCantidad.setText("Cantidad: ");
+                    name.setText("Nombre: ");
+                    TextView nombre = new TextView(PedidoActivity.this);
+                    nombre.setText(object.getString("nombre"));
+                    TextView cantidad = new TextView(PedidoActivity.this);
+                    cantidad.setText(detalle.getString("cantidad"));
+
+                    total += Double.parseDouble(String.valueOf(Integer.parseInt(detalle.getString("cantidad"))*Integer.parseInt(detalle.getString("valorUnitario"))));
+
+                    //TextView valorUnitario = new TextView(PedidoActivity.this);
+
+                    producto.addView(name);
+                    producto.addView(nombre);
+                    productoCantidad.addView(textCantidad);
+                    productoCantidad.addView(cantidad);
+                    detallePedidoP.addView(producto);
+                    detallePedidoP.addView(productoCantidad);
+                    //detallePedidoP.addView(cantidad);
+                    //detallePedidoP.addView(valorUnitario);
+                }
+                catch (Exception e){
+                    System.out.println(e);
+
+                }
+            }
+            totalNeto2.setText(String.valueOf(total));
+            totalPago.addView(totalNeto);
+            totalPago.addView(totalNeto2);
+            detallePedidoP.addView(totalPago);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
+    }*/
+
+
+
     public void sendHttp(){
 
 
         try {
-            eliminar.put("codigoEstado","");
+      /*      eliminar.put("codigoEstado","");
             eliminar.put("mensaje", "");
-            eliminar.put("correcto","");
-            http = new Http("deleteOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), eliminar,3);
+            eliminar.put("correcto","");*/
+            http = new Http("deleteOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), eliminar,3,"102");
             //   http.setId(Long.parseLong(configShared.getString("id","")));
-            //   http.setId(99L);
+               //http.setId("99");
 
             String response =  http.execute().get();
             System.out.println(response);
@@ -176,8 +262,10 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
      //   editorConfig.putString("id",pedido.getId().toString());
      //   editorConfig.commit();
+        tempPedido = new JSONArray();
+        sendGetHttp();
 
-        openDialog();
+     //   openDialog();
     }
 
 

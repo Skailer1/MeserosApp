@@ -107,10 +107,12 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
             editorConfig.commit();
           //  System.out.println("concatenacion "+ tempDetalle);
             System.out.println(pedido);
+            editorConfig.putString("pedidoTotal", String.valueOf(pedido));
+            editorConfig.commit();
             System.out.println("Token "+preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""));
-            http = new Http("addProduct",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""),pedido,1);
-            String response =  http.execute().get();
-            System.out.println(response);
+           // http = new Http("addProduct",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""),pedido,1,"");
+           // String response =  http.execute().get();
+           // System.out.println(response);
         }catch (Exception e){
 
         }
@@ -126,6 +128,7 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
             JSONObject productoCompleto = new JSONObject();
             //productoDetalle.put("producto", productos.getId());
             productoCompleto.put("producto", productos.getId());
+            productoCompleto.put("nombre", productos.getNombreProducto());
           //  productoDetalle.put("nombre", productos.getNombreProducto());
             detalles.put("cantidad",getCantidad());
             detalles.put("valorUnitario", productos.getCosto());
