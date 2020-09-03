@@ -237,7 +237,6 @@ public class PedidoActivity extends AppCompatActivity  {
     }
 
 
-
     public void btnFinalizarPedidoClick(View view){
 
     //    pedidoViewModel.crearPedido();

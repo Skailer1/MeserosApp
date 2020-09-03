@@ -101,22 +101,23 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
         });
     }
 
-    private void sendGetHttp(){
+    private void sendGetHttp(Pedido pedido){
 
 
 
         try {
-
-            http = new Http("listByOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), listarPorId,1,"103");
+            editorConfig.putString("idPedido", pedido.getId().toString());
+            editorConfig.commit();
+            http = new Http("listByOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), listarPorId,1,pedido.getId().toString());
             //   http.setId(Long.parseLong(configShared.getString("id","")));
             //   http.setId(99L);
 
             String response =  http.execute().get();
             almacenarJSON(response);
-            System.out.println(response);
+            System.out.println("preurahsudfasdf"+response);
 
         }catch (Exception e){
-
+            System.out.println(e);
         }
 
     }
@@ -140,9 +141,9 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
                 JSONObject producto = new JSONObject(detalle.getString("producto"));
                 productoTemp.put("nombre",producto.getString("nombreProducto") );
-                productoTemp.put("cantidad", producto.getString("cantidad"));
-                productoTemp.put("valor", producto.getString("valorUnitario"));
-                productoTemp.put("total",producto.getString("total"));
+                productoTemp.put("cantidad", detalle.getString("cantidad"));
+                productoTemp.put("valor", detalle.getString("valorUnitario"));
+                productoTemp.put("total",detalle.getString("total"));
                 tempPedido.put(productoTemp);
 
                 System.out.println(producto.getString("nombreProducto"));
@@ -161,16 +162,11 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
             }
 
-            editorConfig.putString("todo", tempPedido.toString());
-            editorConfig.commit();
+            //editorConfig.putString("todo", tempPedido.toString());
+            //editorConfig.commit();
             openDialog();
-
-
-
-
-
         } catch (Exception e){
-
+            System.out.println(e);
         }
     }
 
@@ -243,7 +239,8 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
       /*      eliminar.put("codigoEstado","");
             eliminar.put("mensaje", "");
             eliminar.put("correcto","");*/
-            http = new Http("deleteOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), eliminar,3,"102");
+            String idPedido = configShared.getString("idPedido", "");
+            http = new Http("deleteOrder",preferencesManager.getAuthToken().replace("Bearer", "").replace(" ", ""), eliminar,3,idPedido);
             //   http.setId(Long.parseLong(configShared.getString("id","")));
                //http.setId("99");
 
@@ -263,7 +260,7 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
      //   editorConfig.putString("id",pedido.getId().toString());
      //   editorConfig.commit();
         tempPedido = new JSONArray();
-        sendGetHttp();
+        sendGetHttp(pedido);
 
      //   openDialog();
     }
@@ -292,7 +289,7 @@ public class PagoActivity extends AppCompatActivity implements PagoRecyclerAdapt
 
 
     public void openDialog() {
-        DialogPagoActivity dialogPago = new DialogPagoActivity(PagoActivity.this);
+        DialogPagoActivity dialogPago = new DialogPagoActivity(PagoActivity.this, tempPedido);
         dialogPago.show(getSupportFragmentManager(), "Pago");
     }
 

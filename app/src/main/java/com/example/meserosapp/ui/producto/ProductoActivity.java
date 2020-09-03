@@ -18,6 +18,7 @@ import com.example.meserosapp.R;
 import com.example.meserosapp.data.modelo.Producto;
 import com.example.meserosapp.data.preferences.SharedPreferencesManager;
 import com.example.meserosapp.data.request.Http;
+import com.example.meserosapp.ui.MenuActivity;
 import com.example.meserosapp.ui.pedido.PedidoActivity;
 
 import org.json.JSONArray;
@@ -203,6 +204,16 @@ public class ProductoActivity extends AppCompatActivity implements ProductoRecyc
     openDialogCategorias();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProductoActivity.this, MenuActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finishAffinity();
+        finish();
+        super.onBackPressed();
     }
 
     public Integer getCantidad() {
